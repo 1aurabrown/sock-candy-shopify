@@ -1,0 +1,7 @@
+development:
+  password: "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"
+  theme_id: "80998105188"
+  store: shop-sock-candy.myshopify.com
+  directory: dist
+  ignore_files:
+    - settings_data.json
