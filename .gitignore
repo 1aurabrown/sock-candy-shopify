@@ -7,7 +7,6 @@
 
 # Project #
 ###################
-*.sass-cache*
 node_modules
 dist
 upload
