@@ -1,0 +1,9 @@
+.text-caption {
+  @apply text-sm;
+  @apply tracking-wide;
+  @apply uppercase;
+}
+
+body {
+  font-family: 'Lausanne', 'sans-serif';
+}
