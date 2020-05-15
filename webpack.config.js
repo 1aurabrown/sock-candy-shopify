@@ -21,7 +21,6 @@ const templatesJS = glob.sync(scriptRoot + "templates/**/*.js").reduce((acc, pat
     return acc
 }, entries)
 
-console.log(templatesJS)
 var config = {
   optimization: {
     minimizer: [
