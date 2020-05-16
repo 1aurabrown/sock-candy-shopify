@@ -14,6 +14,9 @@ import 'lazysizes/plugins/bgset/ls.bgset'
 import 'lazysizes'
 import 'lazysizes/plugins/respimg/ls.respimg'
 
+// Global Sections
+import '../sections/header'
+
 // Shopify
 
 import {load} from '@shopify/theme-sections'

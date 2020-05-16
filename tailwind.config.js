@@ -26,6 +26,19 @@ module.exports = {
       '2xl-tight-desk': ['3rem', '3.3125rem'],         // 48px / 53px
       '3xl-desk': ['3.9375rem', '4.375rem']            // 63px / 70px
     },
+    opacity: {
+      '0': '0',
+      '10': '.1',
+      '20': '.2',
+      '30': '.3',
+      '40': '.4',
+      '50': '.5',
+      '60': '.6',
+      '70': '.7',
+      '80': '.8',
+      '90': '.9',
+      '100': '1'
+    },
     borderColor: theme => ({
       default: theme('colors.black', 'currentColor'),
     }),

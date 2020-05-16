@@ -81,6 +81,11 @@ var config = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
+  },
   target: 'web'
 };
 

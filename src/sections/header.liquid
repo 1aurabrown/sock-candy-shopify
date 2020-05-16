@@ -6,29 +6,18 @@
   uppercase-sm-mob md:uppercase-desk
 {% endcapture %}
 
-<div data-section-id="{{ section.id }}" data-section-type="header-section" class="site-header">
+<div data-section-id="{{ section.id }}" data-section-type="header" class="site-header">
   {% if section.settings.announcement != blank %}
     <div class="site-header__announcement text-center px-8 lg:px-16 py-2 md:py-4 bg-orange border-b-2 flex-center">
       <p class="pt-1">{{ section.settings.announcement }}</p>
     </div>
   {% endif %}
   <header role="banner" class="px-8 lg:px-16 flex flex-row items-center bg-rose site-header__nav">
-    <nav role="navigation" class="z-10 pt-12 pb-10 px-10 bg-off-white block fixed md:hidden top-0 left-0 bottom-0 w-4/5 flex flex-col justify-between items-start">
-      <div class="">
-        <button class="block w-4 site-header__close-nav" type="button">
-          <img src="{{ 'close.svg' | asset_url }}" alt="Close Menu" />
-          <span class="hamburger-label uppercase-sm-mob sr-only">Close Menu</span>
-        </button>
-        <ul class="space-y-10 mt-10 text-xl-mob">
-          {% include 'nav-list' list: section.settings.left_linklist %}
-          {% include 'nav-list' list: section.settings.left_linklist %}
-          {% include 'account-links' %}
-        </ul>
-      </div>
-      <img class="w-10" src="{{ 'logomark.svg' | asset_url }}" alt="{{ shop.name }}"/>
-    </nav>
+
+   {% include 'mobile-nav' %}
+
     <nav role="navigation" class="flex-1 {{ list_wrapper_class }}">
-      <button class="block w-4 mr-auto md:hidden site-header__hamburger" type="button">
+      <button  v-on:click="mobileNavVisible = true" class="block w-4 mr-auto md:hidden site-header__hamburger" type="button">
         <img src="{{ 'hamburger.svg' | asset_url }}" alt="Menu" />
         <span class="hamburger-label uppercase-sm-mob sr-only">Menu</span>
       </button>
@@ -78,7 +67,7 @@
 {% schema %}
   {
     "name": "Header",
-    "class": "sticky top-0",
+    "class": "sticky top-0 z-10",
     "settings": [
       {
         "type": "text",
