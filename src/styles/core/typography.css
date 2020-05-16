@@ -1,9 +1,28 @@
-.text-caption {
-  @apply text-sm;
-  @apply tracking-wide;
-  @apply uppercase;
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  font-family: 'Lausanne', sans-serif;
+@responsive {
+  /* 11px */
+  .uppercase-sm-mob {
+    @apply uppercase;
+    font-size: 0.6875rem;
+    letter-spacing: .12em;
+  }
+
+  /* 12px */
+  .uppercase-md-mob {
+    @apply uppercase;
+    font-size: 0.75rem;
+    letter-spacing: .12em;
+
+  }
+
+  /* 20px */
+  .uppercase-desk {
+    @apply uppercase;
+    font-size: 1.25rem;
+    letter-spacing: .12em;
+  }
 }

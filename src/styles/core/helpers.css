@@ -25,3 +25,9 @@
   font-size: 1.4em;
   z-index: 999;
 }
+
+.flex-center {
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+}

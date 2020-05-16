@@ -32,7 +32,7 @@
   {{ content_for_header }}
 </head>
 
-<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+<body id="{{ page_title | handle }}" template-{{ template.name | handle }}">
 
   <a class="skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
