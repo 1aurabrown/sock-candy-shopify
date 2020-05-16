@@ -1,0 +1,36 @@
+
+.site-header__hamburger-open {
+  display: block;
+}
+.site-header__hamburger-close {
+  display: none;
+}
+
+.site-header--mobile-nav-visible {
+  & .site-header__hamburger-open {
+    display: none;
+  }
+  & .site-header__hamburger-close {
+    display: block;
+  }
+}
+
+.site-header__nav {
+  height: 72px;
+}
+
+.site-header__logo-wrapper {
+  width: 6.25rem;
+}
+
+@screen md {
+  .site-header__announcement {
+    height: 56px;
+  }
+  .site-header__nav {
+    height: 122px;
+  }
+  .site-header__logo-wrapper {
+    width: 12.5rem;
+  }
+}

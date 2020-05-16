@@ -4,6 +4,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import './core/global.css'
+@import './core/global.css';
 @import './core/typography.css';
 @import './core/helpers.css';
+
+@import './components/header.css'
