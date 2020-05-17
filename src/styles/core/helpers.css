@@ -35,3 +35,36 @@
 [v-cloak] {
   display: none !important;
 }
+
+@responsive {
+
+  // image padding classes, ordered tallest to widest:
+
+  .pb-9:16 {
+    padding-bottom: resolve((16 / 9) * 100%);
+  }
+
+  .pb-2:3 {
+    padding-bottom: resolve((3 / 2) * 100%);
+  }
+
+  .pb-3:4 {
+    padding-bottom: resolve((4 / 3) * 100%);
+  }
+
+  .pb-1:1 {
+    padding-bottom: 100%;
+  }
+
+  .pb-4:3 {
+    padding-bottom: resolve((3 / 4) * 100%);
+  }
+
+  .pb-3:2 {
+    padding-bottom: resolve((2 / 3) * 100%);
+  }
+
+  .pb-16:9 {
+    padding-bottom: resolve((9 / 16) * 100%);
+  }
+}
