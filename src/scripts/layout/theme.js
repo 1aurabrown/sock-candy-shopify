@@ -6,6 +6,7 @@ import '../../styles/theme.css'
 
 // External
 
+import { listen } from 'quicklink'
 import mela from 'mela'
 import 'regenerator-runtime/runtime'
 import 'lazysizes/plugins/object-fit/ls.object-fit'
@@ -25,6 +26,7 @@ import '../sections/header'
 const animations = mela()
 
 document.addEventListener("DOMContentLoaded", function(event) {
+  listen()
   animations();
   // Update fade-in-on-scroll effect when sections change inside the theme editor
   document.addEventListener("shopify:section:load", animations);

@@ -4340,7 +4340,7 @@ query-string@^4.1.0:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
-quicklink@^2.0.0-alpha:
+quicklink@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/quicklink/-/quicklink-2.0.0.tgz#1dddb6e89f7c48705cf1cbd18159640040e352a7"
   integrity sha512-jdWCd4JlR0jxSgLgB0kJJjuwjUNWMKzepnuWV4jYzV1FnesWofzVhwonLBCRQ9NJWZ0jl44t8oUDepOYdquCtA==
