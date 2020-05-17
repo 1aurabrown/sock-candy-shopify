@@ -31,3 +31,7 @@
   @apply items-center;
   @apply justify-center;
 }
+
+[v-cloak] {
+  display: none !important;
+}

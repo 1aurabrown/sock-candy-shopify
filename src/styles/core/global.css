@@ -3,7 +3,3 @@ body {
   @apply text-black;
   @apply font-lausanne;
 }
-
-[v-cloak] {
-  display: none !important;
-}

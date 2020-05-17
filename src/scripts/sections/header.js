@@ -1,6 +1,6 @@
 import {register} from '@shopify/theme-sections'
-import breakpoints from '../helpers/breakpoints'
-import {freezeScroll, releaseScroll} from '../helpers/freeze-scroll'
+import breakpoints from '../core/breakpoints'
+import {freezeScroll, releaseScroll} from '../core/freeze-scroll'
 import Vue from 'vue'
 
 const classes = {

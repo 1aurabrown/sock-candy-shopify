@@ -1,0 +1,13 @@
+.mela-animate {
+  @apply transform;
+  @apply duration-500;
+  @apply ease-out;
+  @apply translate-y-10;
+  @apply opacity-0;
+  transition-property: opacity, transform;
+
+  &.mela-is-visible {
+    @apply opacity-100;
+    @apply translate-y-0;
+  }
+}
