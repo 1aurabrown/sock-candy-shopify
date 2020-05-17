@@ -1,9 +1,11 @@
 .mela-animate {
   @apply transform;
+  @apply duration-200;
   @apply duration-500;
   @apply ease-out;
   @apply translate-y-10;
   @apply opacity-0;
+  overflow: visible;
   transition-property: opacity, transform;
 
   &.mela-is-visible {

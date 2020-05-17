@@ -15,8 +15,9 @@
   {% include 'head-json-ld' %}
   {% include 'meta-sharing' %}
 
-  {% include 'style-tags', layout: 'theme' %}
-  {% include 'script-tags', layout: 'theme' %}
+  {% include 'prefetch-assets' %}
+  {% include 'style-tags' %}
+  {% include 'script-tags' %}
 
   <script>
     window.theme = {
