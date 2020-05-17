@@ -47,19 +47,12 @@
       <ul class="{{ desktop_list_class }} justify-end">
         {% include 'nav-list' list: section.settings.left_linklist %}
         {% include 'account-links' %}
-
-        <li>
-          <a href="/cart">
-            {{ 'layout.cart.title' | t }}
-          </a>
-        </li>
+        {% include 'cart-nav-list-item' %}
       </ul>
 
-      <div class="md:hidden text-right pt-1">
-        <a href="/cart">
-          {{ 'layout.cart.title' | t }}
-        </a>
-      </div>
+      <ul class="md:hidden pt-1 flex flex-row justify-end">
+        {% include 'cart-nav-list-item' %}
+      </ul>
     </nav>
   </header>
 </div>
