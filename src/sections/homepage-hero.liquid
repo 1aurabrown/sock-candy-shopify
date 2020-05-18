@@ -1,5 +1,10 @@
 <section class="homepage-hero border-b md:border-b-0 md:px-8 lg:px-16 bg-rose">
   <div class="md:relative">
+    {% if section.settings.mobile_image != blank and section.settings.mobile_image.src != blank %}
+      {% assign mobile_image = section.settings.mobile_image %}
+    {% else %}
+      {% assign mobile_image = section.settings.desktop_image %}
+    {% endif %}
     <div class="homepage-hero__image">
       {% include 'responsive-image' with
         image: section.settings.desktop_image,
@@ -7,7 +12,7 @@
         wrapper_class: 'hidden md:block'
       %}
       {% include 'responsive-image' with
-        image: section.settings.mobile_image,
+        image: mobile_image,
         inline_aspect_ratio: true,
         crop_aspect_ratio: 1,
         wrapper_class: 'md:hidden'
