@@ -756,6 +756,49 @@
     postcss "7.0.28"
     purgecss "^2.2.0"
 
+"@pluginjs/breakpoints@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@pluginjs/breakpoints/-/breakpoints-0.8.3.tgz#3c39af215a293cb5ee74318bb251bff06472e27e"
+  integrity sha512-uy/m8PcSdWoYmhTlO4eFsWFBl1Q85C/Vnwido/S+dm/IltubQwsK1tcOKWQzHyUcFljQSfd5Nc6G2/N/+iliRw==
+  dependencies:
+    "@pluginjs/emitter" "^0.8.3"
+    "@pluginjs/factory" "^0.8.3"
+    "@pluginjs/is" "^0.8.3"
+    "@pluginjs/simple-emitter" "^0.8.3"
+    "@pluginjs/utils" "^0.8.3"
+
+"@pluginjs/emitter@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@pluginjs/emitter/-/emitter-0.8.3.tgz#cd5692829cf0256b808123f9794ad44bf3fdfa3a"
+  integrity sha512-wX6AKO6meHF/nccZm8sJEJWRsG5S2/DIrHSSrxwwzOQYLOIc6FyX4koa0gjnZ70lv/kxn+TOb42eQwK7UnmSnw==
+  dependencies:
+    "@pluginjs/simple-emitter" "^0.8.3"
+
+"@pluginjs/factory@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@pluginjs/factory/-/factory-0.8.3.tgz#d1d3fe70a7508591cd2e2a3aa40793760c33cba1"
+  integrity sha512-liHZV7edoh9FPj1lCumbYuaecFKxqs32qc41SuqASyndUO0GqsWTCEqWoh1xMndNNS/vKlnFPdpcLV/ckjkIuw==
+  dependencies:
+    "@pluginjs/emitter" "^0.8.3"
+    "@pluginjs/utils" "^0.8.3"
+
+"@pluginjs/is@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@pluginjs/is/-/is-0.8.3.tgz#be4ae60cddfc72569753d453ce35a91f5f5ce253"
+  integrity sha512-vgnHpboJTPUPeFeyiguJ6Fo0XpXWkVOoLhorySFq5/ZX0oy3MhpR230v7xD3v6HdJRRsu2R7mv9tzFLPBTE5bQ==
+
+"@pluginjs/simple-emitter@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@pluginjs/simple-emitter/-/simple-emitter-0.8.3.tgz#28ea64bf9cebac1c7c357a6c2d44618dc53f430d"
+  integrity sha512-+vk3GP/FKaWZChvyvB3o66sjL0zTOT5N7wBHBlvn7lWdF+wRDmp1zbQELyDBDwm9/SfUQDekDjD1GEilpWCEVw==
+
+"@pluginjs/utils@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@pluginjs/utils/-/utils-0.8.3.tgz#2b1297d1db349acb64d03bbc5bdc8f8401488733"
+  integrity sha512-ffhjtLTip+4fJSmDy4IGz+jBsoxIT2PLPVgC6ezFm7WGf4HFev9bOPib9LFo6NuC/m9N4IJTUCDDamCMqNUYIg==
+  dependencies:
+    "@pluginjs/is" "^0.8.3"
+
 "@shopify/theme-a11y@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@shopify/theme-a11y/-/theme-a11y-3.1.0.tgz#effe056dd8804dc6485591781e38c72093705df2"
@@ -1857,6 +1900,13 @@ dom-serializer@0:
   dependencies:
     domelementtype "^2.0.1"
     entities "^2.0.0"
+
+dom7@^2.1.3:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/dom7/-/dom7-2.1.5.tgz#a79411017800b31d8400070cdaebbfc92c1f6377"
+  integrity sha512-xnhwVgyOh3eD++/XGtH+5qBwYTgCm0aW91GFgPJ3XG+jlsRLyJivnbP0QmUBFhI+Oaz9FV0s7cxgXHezwOEBYA==
+  dependencies:
+    ssr-window "^2.0.0"
 
 domelementtype@1:
   version "1.3.1"
@@ -4645,11 +4695,6 @@ signal-exit@^3.0.0:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-simple-breakpoints@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/simple-breakpoints/-/simple-breakpoints-1.1.3.tgz#5b5b09f1e96c5f8873e8ac23915323fbd7051516"
-  integrity sha512-Io4J/9HyjAp6ITTBgOLU0BAronZKPC36znZoiiUSq5zlOfGPSdDFgWbpKyt9ASxGj5WXm2fhGx9+XtK3a+4dHw==
-
 simple-swizzle@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/simple-swizzle/-/simple-swizzle-0.2.2.tgz#a4da6b635ffcccca33f70d17cb92592de95e557a"
@@ -4785,6 +4830,16 @@ srraf@^3.1.4:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/srraf/-/srraf-3.2.0.tgz#098d70b11553aaf6258f800f8c2f8d43af143b33"
   integrity sha512-AFDqLZzZgi9uiP7ncuJJqFsUxWBkJZWi3uLNTSnsSJMfnIYE7Fb2t1IGvM8ynqhpyV94TfCy7aKLrOteJq3+tw==
+
+ssr-window@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-1.0.1.tgz#30752a6a4666e7767f0b7e6aa6fc2fdbd0d9b369"
+  integrity sha512-dgFqB+f00LJTEgb6UXhx0h+SrG50LJvti2yMKMqAgzfUmUXZrLSv2fjULF7AWGwK25EXu8+smLR3jYsJQChPsg==
+
+ssr-window@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-2.0.0.tgz#98c301aef99523317f8d69618f0010791096efc4"
+  integrity sha512-NXzN+/HPObKAx191H3zKlYomE5WrVIkoCB5IaSdvKokxTpjBdWfr0RaP+1Z5KOfDT0ZVz+2tdtiBkhsEQ9p+0A==
 
 ssri@^6.0.1:
   version "6.0.1"
@@ -4949,6 +5004,14 @@ svgo@^1.0.0:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+swiper@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-5.4.0.tgz#fa7222bf39e068404362f6c8e11964cfbe41ab0e"
+  integrity sha512-2L2JX3BsTUjyZVFcwGI0eYg5G7w5EF/Pb4ogqwHlqGk3GbfI84N+p3khpaVsBvZK1tIkjyf9OwR0uD+BC38Dng==
+  dependencies:
+    dom7 "^2.1.3"
+    ssr-window "^1.0.1"
 
 tailwindcss@^1.4.6:
   version "1.4.6"

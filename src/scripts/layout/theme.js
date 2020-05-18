@@ -28,8 +28,5 @@ const animations = mela()
 document.addEventListener("DOMContentLoaded", function(event) {
   listen()
   animations();
-  // Update fade-in-on-scroll effect when sections change inside the theme editor
-  document.addEventListener("shopify:section:load", animations);
-  document.addEventListener("shopify:section:unload", animations);
   load('*');
 });

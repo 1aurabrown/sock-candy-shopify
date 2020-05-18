@@ -1,9 +1,7 @@
 // Always import global layout file
 
 import '../../styles/templates/index.css'
+import '../sections/press-quotes'
 
-import {load} from '@shopify/theme-sections';
+console.log('index.js')
 
-load('*');
-
-console.log('product.js')

@@ -78,10 +78,17 @@ object-fit: cover; position: absolute; left: 0; top: 0; bottom: 0; right: 0;  wi
       data-aspectratio="{{ crop_aspect_ratio | default: image.aspect_ratio }}"
       data-sizes="auto"
       tabindex="-1"
-      alt="{{ image.alt | escape }}"
+      alt="{{ alt | default: image.alt | escape }}"
       {{ image_attributes }}
     >
   {% else %}
     <img class="{{ image_class }} bg-off-white" style="{{ img_styles }}" src="data:image/svg+xml;utf8,{{ 'image' | placeholder_svg_tag  | escape }}" />
   {% endif %}
 </div>
+
+{% assign alt = blank %}
+{% assign inline_aspect_rtio = blank %}
+{% assign crop_aspect_ratio = blank %}
+{% assign image_class = blank %}
+{% assign wrapper_class = blank %}
+{% assign image = blank %}

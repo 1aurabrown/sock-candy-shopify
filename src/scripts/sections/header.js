@@ -1,5 +1,5 @@
 import {register} from '@shopify/theme-sections'
-import breakpoints from '../core/breakpoints'
+import breakpoints from '../core/breakpoints-tailwind'
 import {freezeScroll, releaseScroll} from '../core/freeze-scroll'
 import Vue from 'vue'
 

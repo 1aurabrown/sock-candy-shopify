@@ -15,13 +15,14 @@
   },
   "scripts": {
     "clean": "rm -rf dist/*",
-    "dev": "yarn clean && webpack --colors --mode development && theme deploy && concurrently --prefix name --names 'webpack,theme watch' --prefix-colors yellow,blue \"webpack --watch --colors --mode development\" \"theme watch\"",
+    "dev": "yarn clean && webpack --colors --mode=development && theme deploy && concurrently --prefix name --names 'webpack,theme watch' --prefix-colors yellow,blue \"webpack --watch --colors --mode=development\" \"theme watch\"",
     "start": "yarn dev",
     "download:settings": "theme download config/settings_data.json --dir=src/ --no-ignore",
-    "build": "yarn clean && webpack --mode production",
+    "build": "yarn clean && webpack --mode=production",
     "deploy": "yarn build && theme deploy"
   },
   "dependencies": {
+    "@pluginjs/breakpoints": "^0.8.3",
     "@shopify/theme-a11y": "^3.1.0",
     "@shopify/theme-currency": "^3.1.0",
     "@shopify/theme-product-form": "^3.1.0",
@@ -34,7 +35,7 @@
     "postcss-preset-env": "^6.7.0",
     "quicklink": "^2.0.0",
     "regenerator-runtime": "^0.13.5",
-    "simple-breakpoints": "^1.1.3",
+    "swiper": "^5.4.0",
     "tailwindcss": "^1.4.6",
     "vsbl": "^1.3.3",
     "vue": "^2.6.11"

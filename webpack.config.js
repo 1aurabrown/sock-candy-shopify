@@ -12,6 +12,8 @@ const entries = {
     import: './scripts/layout/theme.js',
   }
 }
+
+// Template script entries
 const templatesJS = glob.sync(scriptRoot + "templates/**/*.js").reduce((acc, path) => {
     const entry = path.replace(scriptRoot + "templates/", '').replace('.js', '')
     acc[entry] = {
@@ -79,6 +81,15 @@ var config = {
           { loader: 'postcss-loader', options: { sourceMap: true }}
         ]
       },
+      {
+        // Don't process vendor css with postcss.
+        test: /\.(sa|sc|c)ss$/,
+        include: /node_modules/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader, options: { sourceMap: true }},
+          { loader: 'css-loader', options: { sourceMap: true }}
+        ]
+      },
     ],
   },
   resolve: {
@@ -91,10 +102,9 @@ var config = {
 
 
 module.exports = (env, argv) => {
+  console.log(argv.mode)
   if (argv.mode === 'development') {
-    config.devtool = 'inline-source-map';
-  } else {
-    config.devtool = 'source-map';
+    config.devtool = "inline-source-map"
   }
   return config
 }

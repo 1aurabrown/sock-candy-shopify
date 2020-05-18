@@ -1,0 +1,83 @@
+<section class="press-quotes bg-rose" data-section-type="press-quotes" data-section-id="{{ section.id }}">
+
+  <div class="press-quotes__texts swiper-container">
+
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide p-16 text-center" data-index="{{ forloop.index }}">
+          <div>{{ block.settings.text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+  </div>
+  <div class="press-quotes__images swiper-container">
+    <div class="swiper-wrapper ">
+      {% for block in section.blocks %}
+        <div class="swiper-slide opacity-50" data-index="{{ forloop.index }}">
+          {% include 'responsive-image', image: block.settings.image, inline_aspect_ratio: true %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Press Quotes",
+    "max_blocks": 12,
+    "blocks": [
+      {
+        "type": "press-quote",
+        "name": "Press Quote",
+        "settings": [
+          {
+            "label": "Text",
+            "id": "text",
+            "type": "textarea",
+            "default": "The sock brand we can't stop talking about"
+          },
+          {
+            "label": "Logo",
+            "id": "image",
+            "type": "image_picker"
+          },
+          {
+            "label": "Source",
+            "id": "source",
+            "type": "text",
+            "info": "Used as alt text for image",
+            "default": "Press Source"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Press Quotes",
+        "category": "Press",
+        "blocks": [
+          {
+            "type": "press-quote"
+          },
+          {
+            "type": "press-quote"
+          },
+          {
+            "type": "press-quote"
+          },
+          {
+            "type": "press-quote"
+          },
+          {
+            "type": "press-quote"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
