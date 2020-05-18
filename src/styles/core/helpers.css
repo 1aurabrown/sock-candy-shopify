@@ -36,35 +36,8 @@
   display: none !important;
 }
 
-@responsive {
-
-  /* image padding classes, ordered tallest to widest: */
-
-  .pb-9:16 {
-    padding-bottom: ((16 / 9) * 100%);
-  }
-
-  .pb-2:3 {
-    padding-bottom: ((3 / 2) * 100%);
-  }
-
-  .pb-3:4 {
-    padding-bottom: ((4 / 3) * 100%);
-  }
-
-  .pb-1:1 {
-    padding-bottom: 100%;
-  }
-
-  .pb-4:3 {
-    padding-bottom: ((3 / 4) * 100%);
-  }
-
-  .pb-3:2 {
-    padding-bottom: ((2 / 3) * 100%);
-  }
-
-  .pb-16:9 {
-    padding-bottom: ((9 / 16) * 100%);
-  }
+.max-w-em {
+  /* Limit text width proportionally to type size, should be around 60 characters wide.*/
+  max-width: 30em;
 }
+

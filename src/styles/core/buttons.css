@@ -1,0 +1,19 @@
+.button {
+  @apply bg-orange;
+  @apply text-center;
+  @apply text-base-mob;
+  @apply border-2;
+  @apply text-black;
+  @apply block;
+  @apply pt-3;
+  @apply pb-2;
+  @apply px-10;
+  width: fit-content;
+  @screen md {
+    @apply text-lg-desk;
+    @apply border-3;
+    @apply pt-5;
+    @apply pb-4;
+    @apply px-16;
+  }
+}

@@ -5,6 +5,8 @@
 @import "tailwindcss/utilities";
 
 @import './core/global.css';
+@import './core/aspect-ratio.css';
+@import './core/buttons.css';
 @import './core/typography.css';
 @import './core/helpers.css';
 @import './core/fade-in-scroll.css';
