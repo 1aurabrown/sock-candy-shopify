@@ -1,4 +1,4 @@
-<section class="homepage-hero px-16 {{ section.settings.bg_color }}">
+<section class="homepage-hero border-b md:border-b-0 md:px-16 {{ section.settings.bg_color }}">
   <div class="md:relative">
     <div class="homepage-hero__image">
       {% include 'responsive-image' with
@@ -8,21 +8,22 @@
       %}
       {% include 'responsive-image' with
         image: section.settings.mobile_image,
-        inline_aspect_ratio: true
+        inline_aspect_ratio: true,
+        crop_aspect_ratio: 1,
         wrapper_class: 'md:hidden'
       %}
     </div>
 
-    <div class="image-with-text__text md:absolute md:inset-0 text-center md:text-off-white md:flex md:items-center md:justify-center">
+    <div class="image-with-text__text p-10 pb-12 md:pt-0 md:absolute md:inset-0 text-center md:text-off-white md:flex md:items-center md:justify-center">
       <div>
         {% if section.settings.title != blank %}
-          <h2 class="md:text-3xl-desk max-w-em">{{ section.settings.title | escape }}</h2>
+          <h2 class="text-2xl-mob mb-2 md:mb-3 md:text-2xl-tight-desk lg:text-3xl-tight-desk max-w-em">{{ section.settings.title | escape }}</h2>
         {% endif %}
         {% if section.settings.text != blank %}
-          <div class="md:text-xl-desk md:pt-3 max-w-em">{{ section.settings.text }}</div>
+          <div class="md:text-lg-desk lg:text-xl-desk max-w-em">{{ section.settings.text }}</div>
         {% endif %}
         {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          <a class="md:mt-6 button" href="{{ section.settings.button_link }}">
+          <a class="mx-auto mt-4 md:mt-6 button" href="{{ section.settings.button_link }}">
             {{ section.settings.button_label | escape }}
           </a>
         {% endif %}

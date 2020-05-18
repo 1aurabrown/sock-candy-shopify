@@ -10,6 +10,13 @@
   @apply px-10;
   width: fit-content;
   @screen md {
+    @apply text-base-desk;
+    @apply border-3;
+    @apply pt-4;
+    @apply pb-3;
+    @apply px-12;
+  }
+  @screen lg {
     @apply text-lg-desk;
     @apply border-3;
     @apply pt-5;
