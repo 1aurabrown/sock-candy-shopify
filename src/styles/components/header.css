@@ -19,9 +19,6 @@
 }
 
 @screen md {
-  .site-header__announcement {
-    height: 56px;
-  }
   .site-header__nav {
     height: 122px;
   }

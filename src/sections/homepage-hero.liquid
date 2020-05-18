@@ -1,4 +1,4 @@
-<section class="homepage-hero border-b md:border-b-0 md:px-16 {{ section.settings.bg_color }}">
+<section class="homepage-hero border-b md:border-b-0 md:px-8 lg:px-16 bg-rose">
   <div class="md:relative">
     <div class="homepage-hero__image">
       {% include 'responsive-image' with
@@ -14,8 +14,8 @@
       %}
     </div>
 
-    <div class="image-with-text__text p-10 pb-12 md:pt-0 md:absolute md:inset-0 text-center md:text-off-white md:flex md:items-center md:justify-center">
-      <div>
+    <div class="mela-animate image-with-text__text pt-10 pb-12 px-6 md:p-10 md:absolute md:inset-0 text-center md:text-off-white md:flex md:items-center md:justify-center">
+      <div class="md:pb-5-per">
         {% if section.settings.title != blank %}
           <h2 class="text-2xl-mob mb-2 md:mb-3 md:text-2xl-tight-desk lg:text-3xl-tight-desk max-w-em">{{ section.settings.title | escape }}</h2>
         {% endif %}
@@ -47,22 +47,6 @@
         "id": "mobile_image",
         "label": "Mobile Image",
         "info": "Square image. Other aspect ratios will be cropped to square format. If not provided, desktop image will be used."
-      },
-      {
-        "type": "select",
-        "id": "bg_color",
-        "label": "Background Color",
-        "default": "bg-rose",
-        "options": [
-          {
-            "value": "bg-orange",
-            "label": "Orange"
-          },
-          {
-            "value": "bg-rose",
-            "label": "Rose"
-          }
-        ]
       },
       {
         "type": "text",

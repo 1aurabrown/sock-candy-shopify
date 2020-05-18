@@ -8,7 +8,7 @@
 
 <div data-section-id="{{ section.id }}" data-section-type="header" class="site-header">
   {% if section.settings.announcement != blank %}
-    <div class="site-header__announcement text-center px-8 lg:px-16 py-2 md:py-4 bg-orange border-b flex-center">
+    <div class="site-header__announcement text-center px-8 lg:px-10 py-2 md:py-4 bg-orange border-b flex-center">
       <p class="pt-1">{{ section.settings.announcement }}</p>
     </div>
   {% endif %}
@@ -45,7 +45,7 @@
 
     <nav role="navigation" class="flex-1 {{ list_wrapper_class }}">
       <ul class="{{ desktop_list_class }} justify-end">
-        {% include 'nav-list' list: section.settings.left_linklist %}
+        {% include 'nav-list' list: section.settings.right_linklist %}
         {% include 'account-links' %}
         {% include 'cart-nav-list-item' %}
       </ul>
