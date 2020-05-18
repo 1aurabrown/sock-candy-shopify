@@ -14,9 +14,12 @@
 
   </div>
   <div class="press-quotes__images swiper-container">
-    <div class="swiper-wrapper ">
+    <div class="swiper-wrapper md:flex md:flex-row">
       {% for block in section.blocks %}
-        <div class="swiper-slide opacity-50" data-index="{{ forloop.index }}">
+        <div class="swiper-slide md:flex-1 relative" data-index="{{ forloop.index0 }}">
+          <div class="absolute z-10 inset-0 flex justify-center items-center">
+            <div>Quote {{ forloop.index }}</div>
+          </div>
           {% include 'responsive-image', image: block.settings.image, inline_aspect_ratio: true %}
         </div>
       {% endfor %}

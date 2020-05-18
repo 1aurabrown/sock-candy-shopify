@@ -2,6 +2,7 @@ import {register} from '@shopify/theme-sections'
 import Swiper from 'swiper';
 import 'swiper/css/swiper.css';
 import Breakpoints from '../core/breakpoints-tailwind.js';
+import '../../styles/components/press-quotes.css';
 
 const selectors = {
   texts: '.press-quotes__texts',
@@ -13,13 +14,12 @@ register('press-quotes', {
   onLoad() {
     this.textsEl = this.container.querySelector(selectors.texts)
     this.imagesEl = this.container.querySelector(selectors.images)
-    this.initImageSwiper = this.initImageSwiper.bind(this)
-    this.destroyImageSwiper = this.destroyImageSwiper.bind(this)
-
+    this.imageSlides = this.imagesEl.querySelectorAll(selectors.slides)
+    this.enteredMobile = this.enteredMobile.bind(this)
+    this.enteredDesktop = this.enteredDesktop.bind(this)
+    this.imageSlideClickedDesktop = this.imageSlideClickedDesktop.bind(this)
 
     this.textSwiper = new Swiper(this.textsEl, {
-      slidesPerView: 1,
-      slideActiveClass: 'swiper-slide-active',
       effect: 'fade',
       fadeEffect: {
         crossFade: true
@@ -28,24 +28,43 @@ register('press-quotes', {
 
     Breakpoints.on('sm-', {
       enter: () => {
-        this.initImageSwiper()
+        this.enteredMobile()
       },
       leave: () => {
-        this.destroyImageSwiper()
+        this.enteredDesktop()
       }
     })
 
     if (Breakpoints.is('sm-')) {
-      this.initImageSwiper()
+      this.enteredMobile()
+    } else {
+      this.enteredDesktop()
     }
 
   },
 
-  initImageSwiper() {
+  imageSlideClickedDesktop(e) {
+    const imageSlide = e.currentTarget
+    const index = parseInt(imageSlide.dataset.index)
+    this.activateImageDesktop(imageSlide)
+    this.textSwiper.slideTo(index)
+  },
+
+  activateImageDesktop(slide){
+    const activeClass = 'active'
+    if (!slide.classList.contains(activeClass)) {
+      this.imageSlides.forEach( imageSlide => {
+        imageSlide.classList.remove(activeClass)
+      })
+      slide.classList.add(activeClass)
+    }
+  },
+
+  enteredMobile() {
+    this.removeDesktopListeners()
     this.imageSwiper = new Swiper(this.imagesEl, {
       slidesPerView: 1,
       touchRatio: 0.2,
-      slideActiveClass: 'swiper-slide-active opacity-100',
       slideToClickedSlide: true,
       effect: 'fade',
       fadeEffect: {
@@ -55,17 +74,42 @@ register('press-quotes', {
 
     this.textSwiper.controller.control = this.imageSwiper
     this.imageSwiper.controller.control = this.textSwiper
+  },
 
+  enteredDesktop() {
+    const activeIndex = this.textSwiper.realIndex
+    this.destroyImageSwiper()
+    this.addDesktopListeners()
+    this.activateImageDesktop(this.imageSlides[activeIndex])
+  },
+
+  removeDesktopListeners() {
+    this.imageSlides.forEach((slide) => {
+      slide.removeEventListener('click', this.imageSlideClickedDesktop)
+    })
+  },
+
+  addDesktopListeners() {
+    this.imageSlides.forEach((slide) => {
+      slide.addEventListener('click', this.imageSlideClickedDesktop)
+    })
   },
 
   destroyImageSwiper() {
-    delete this.textSwiper.controller.control
+    if (this.textSwiper) delete this.textSwiper.controller.control
     if (this.imageSwiper) this.imageSwiper.destroy()
+  },
+
+  destroyTextSwiper() {
+    if (this.imageSwiper) delete this.imageSwiper.controller.control
+    if (this.textSwiper) this.textSwiper.destroy()
   },
 
   onUnload() {
     Breakpoints.off('sm-');
+    this.removeDesktopListeners()
     this.destroyImageSwiper()
+    this.destroyTextSwiper()
   }
 });
 

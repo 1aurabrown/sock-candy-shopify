@@ -1,0 +1,14 @@
+.press-quotes {
+
+}
+
+@screen md {
+  .press-quotes__images {
+    & .swiper-slide {
+      @apply opacity-50;
+    }
+    & .swiper-slide.active {
+      @apply opacity-100;
+    }
+  }
+}
