@@ -2,7 +2,10 @@
 
 // Styles
 
-import '../../styles/theme.css'
+// for some reason errors when imported via postcss-import
+import 'swiper/css/swiper.css';
+
+import '../../styles/theme.css';
 
 // External
 

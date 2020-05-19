@@ -1,13 +1,12 @@
 import {register} from '@shopify/theme-sections'
 import Swiper from 'swiper';
-import 'swiper/css/swiper.css';
 import Breakpoints from '../core/breakpoints-tailwind.js';
 import '../../styles/components/press-quotes.css';
 
 const selectors = {
-  texts: '.press-quotes__texts',
-  images: '.press-quotes__images',
-  slides: '.swiper-slide'
+  texts: '.press-quotes__texts .swiper-container',
+  images: '.press-quotes__images .swiper-container',
+  slides: '.swiper-slide',
 }
 
 register('press-quotes', {
@@ -23,6 +22,10 @@ register('press-quotes', {
       effect: 'fade',
       fadeEffect: {
         crossFade: true
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
       },
     });
 
@@ -63,13 +66,10 @@ register('press-quotes', {
   enteredMobile() {
     this.removeDesktopListeners()
     this.imageSwiper = new Swiper(this.imagesEl, {
-      slidesPerView: 1,
-      touchRatio: 0.2,
-      slideToClickedSlide: true,
       effect: 'fade',
       fadeEffect: {
         crossFade: true
-      },
+      }
     });
 
     this.textSwiper.controller.control = this.imageSwiper

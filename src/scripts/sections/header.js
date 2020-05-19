@@ -28,7 +28,7 @@ register('header', {
         mobileNavVisible: false
       },
       watch: {
-        mobileNavVisible: function(val) {
+        mobileNavVisible: (val) => {
           if (val===true) {
             freezeScroll()
           } else  {

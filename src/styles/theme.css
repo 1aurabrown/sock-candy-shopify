@@ -1,14 +1,12 @@
-@charset 'UTF-8';
-
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 @import './core/global.css';
-@import './core/percent-padding.css';
-@import './core/buttons.css';
+@import './core/links-buttons.css';
 @import './core/typography.css';
 @import './core/helpers.css';
 @import './core/fade-in-scroll.css';
+@import './core/swiper.css';
 
-@import './components/header.css'
+@import './components/header.css';

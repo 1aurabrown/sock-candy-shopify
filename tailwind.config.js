@@ -1,3 +1,36 @@
+const percentSpacing = {
+  '1-per': '1%',
+  '2-per': '2%',
+  '3-per': '3%',
+  '4-per': '4%',
+  '5-per': '5%',
+  '6-per': '6%',
+  '7-per': '7%',
+  '8-per': '8%',
+  '9-per': '9%',
+  '10-per': '10%',
+  '15-per': '15%',
+  '20-per': '20%',
+  '25-per': '25%',
+  '30-per': '30%',
+  '40-per': '40%',
+  '50-per': '50%',
+  '60-per': '60%',
+  '70-per': '70%',
+  '75-per': '75%',
+  '80-per': '80%',
+  '90-per': '90%',
+  '100-per': '100%',
+  // common image aspect ratios
+  '9:16': `${((16 / 9) * 100)}%`,
+  '2:3': `${((3 / 2) * 100)}%`,
+  '3:4': `${((4 / 3) * 100)}%`,
+  '1:1': '100%', // alias 100-per
+  '4:3': `${((3 / 4) * 100)}%`,
+  '3:2': `${((2 / 3) * 100)}%`,
+  '16:9': `${((9 / 16) * 100)}%`
+}
+
 module.exports = {
   theme: {
     fontFamily: {
@@ -7,7 +40,10 @@ module.exports = {
       rose: '#E29FA0',
       'soft-blue': '#92A0AD',
       orange: '#EF9A60',
-      black: '#221F1F',
+      black: {
+        default: '#221F1F',
+        tint: '#FBE6D7'
+      },
       'off-white': '#F1EAE4'
     },
     fontSize: theme => ({
@@ -26,19 +62,6 @@ module.exports = {
       '2xl-tight-desk': ['3rem', '3.3125rem'],              // 48px / 53px
       '3xl-tight-desk': ['3.9375rem', '4.375rem']           // 63px / 70px
     }),
-    opacity: {
-      '0': '0',
-      '10': '.1',
-      '20': '.2',
-      '30': '.3',
-      '40': '.4',
-      '50': '.5',
-      '60': '.6',
-      '70': '.7',
-      '80': '.8',
-      '90': '.9',
-      '100': '1'
-    },
     borderWidth: {
       default: '2px',
       '0': '0',
@@ -47,13 +70,34 @@ module.exports = {
       '3': '3px',
     },
     borderColor: theme => ({
-      default: theme('colors.black', 'currentColor'),
+      default: theme('colors.black.default', 'currentColor'),
+      black: {
+        default: theme('colors.black.default', 'currentColor'),
+        tint: theme('colors.black.tint', 'currentColor'),
+      }
     }),
     letterSpacing: {
       normal: 'auto',
     },
     lineHeight: {
       'normal': '1.3'
+    },
+    extend: {
+      opacity: {
+        '0': '0',
+        '10': '.1',
+        '20': '.2',
+        '30': '.3',
+        '40': '.4',
+        '50': '.5',
+        '60': '.6',
+        '70': '.7',
+        '80': '.8',
+        '90': '.9',
+        '100': '1'
+      },
+      margin: percentSpacing,
+      padding: percentSpacing,
     }
   },
   variants: {

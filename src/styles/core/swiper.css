@@ -1,0 +1,11 @@
+/* Swiper overrides */
+
+.swiper-pagination-bullet {
+  background-color: theme(colors.black.default);
+  @apply opacity-20;
+  width: 4px;
+  height: 4px;
+  &.swiper-pagination-bullet-active{
+    @apply opacity-100;
+  }
+}

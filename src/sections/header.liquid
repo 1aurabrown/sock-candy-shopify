@@ -14,13 +14,14 @@
   {% endif %}
   <header role="banner" class="px-8 lg:px-16 flex flex-row items-center bg-rose site-header__nav">
 
-   {% include 'mobile-nav' %}
-
     <nav role="navigation" class="flex-1 {{ list_wrapper_class }}">
-      <button  v-on:click="mobileNavVisible = true" class="block w-4 mr-auto md:hidden site-header__hamburger" type="button">
+      <button  v-on:click="mobileNavVisible = true" class="block w-4 mr-auto md:hidden site-header__hamburger" type="button" role="button">
         <img src="{{ 'hamburger.svg' | asset_url }}" alt="Menu" />
         <span class="hamburger-label uppercase-sm-mob sr-only">Menu</span>
       </button>
+
+       {% include 'mobile-nav' %}
+
       <ul class="{{ desktop_list_class }} justify-start">
         {% include 'nav-list' list: section.settings.left_linklist %}
       </ul>

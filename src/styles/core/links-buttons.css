@@ -3,6 +3,7 @@
   @apply text-center;
   @apply text-base-mob;
   @apply border-2;
+  @apply border-black;
   @apply text-black;
   @apply block;
   @apply pt-3;
@@ -23,4 +24,23 @@
     @apply pb-4;
     @apply px-16;
   }
+  &:focus {
+    @apply text-opacity-50;
+    @apply border-opacity-50;
+  }
 }
+a {
+  @apply text-black;
+  &:focus, &:focus-within {
+    @apply text-opacity-50;
+  }
+}
+
+a, button, .button {
+  &:focus, &:focus-within {
+    & img[src*=".svg"] {
+      @apply opacity-50;
+    }
+  }
+}
+

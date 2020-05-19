@@ -1,28 +1,38 @@
 <section class="press-quotes bg-rose" data-section-type="press-quotes" data-section-id="{{ section.id }}">
 
-  <div class="press-quotes__texts swiper-container">
+  <div class="press-quotes__texts text-xl-mob md:text-2xl-tight-desk md:pt-2">
+    <div class="swiper-container">
 
-    <div class="swiper-wrapper">
-      {% for block in section.blocks %}
-        <div class="swiper-slide p-16 text-center" data-index="{{ forloop.index }}">
-          <div>{{ block.settings.text }}</div>
-        </div>
-      {% endfor %}
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide p-16 pb-6 text-center" data-index="{{ forloop.index }}">
+            <q>{{ block.settings.text }}</q>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="md:hidden swiper-pagination"></div>
     </div>
 
-    <div class="swiper-pagination"></div>
-
   </div>
-  <div class="press-quotes__images swiper-container">
-    <div class="swiper-wrapper md:flex md:flex-row">
-      {% for block in section.blocks %}
-        <div class="swiper-slide md:flex-1 relative" data-index="{{ forloop.index0 }}">
-          <div class="absolute z-10 inset-0 flex justify-center items-center">
-            <div>Quote {{ forloop.index }}</div>
+  <div class="press-quotes__images md:mx-16 md:px-2 md:pb-24 md:pt-12">
+    <div class="swiper-container">
+      <div class="swiper-wrapper md:flex md:flex-row">
+        {% for block in section.blocks %}
+          <div tabindex="0"
+          role="button"
+          class="pt-2 pb-16 px-4 md:p-0 cursor-pointer swiper-slide md:flex-1 md:items-center relative"
+          data-index="{{ forloop.index0 }}">
+            <div class="w-32 md:w-auto mx-auto md:mx-20-per">
+              {% include 'responsive-image',
+                image: block.settings.image,
+                wrapper_class: 'pt-40-per',
+                inline_aspect_ratio: false,
+                fit: 'contain' %}
+              </div>
           </div>
-          {% include 'responsive-image', image: block.settings.image, inline_aspect_ratio: true %}
-        </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 

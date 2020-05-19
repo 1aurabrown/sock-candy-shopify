@@ -2,13 +2,29 @@
 
 }
 
+.press-quotes__texts {
+  & .swiper-pagination {
+    bottom: 0;
+  }
+}
+
 @screen md {
   .press-quotes__images {
     & .swiper-slide {
-      @apply opacity-50;
-    }
-    & .swiper-slide.active {
-      @apply opacity-100;
+      @apply transition-opacity;
+      @apply duration-300;
+      @apply opacity-20;
+      &:focus,
+      &:focus-within  {
+        @apply opacity-50;
+      }
+      &.active {
+        &,
+        &:focus,
+        &:focus-within {
+          @apply opacity-100;
+        }
+      }
     }
   }
 }

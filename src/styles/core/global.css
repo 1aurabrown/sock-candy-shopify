@@ -11,3 +11,20 @@ body {
 html {
   width: 100%;
 }
+
+*, a, button, input, textarea, select {
+  &:focus {
+    outline: none;
+  }
+}
+
+q {
+  quotes: "“" "”" "‘" "’";
+}
+
+q::before {
+    content: open-quote;
+}
+q::after {
+    content: close-quote;
+}
