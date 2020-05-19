@@ -41,3 +41,9 @@
   max-width: 30em;
 }
 
+
+.max-w-sm-em {
+  /* Limit text width proportionally to type size, should be around 60 characters wide.*/
+  max-width: 18em;
+}
+
