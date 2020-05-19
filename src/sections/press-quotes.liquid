@@ -1,6 +1,6 @@
 <section class="press-quotes bg-rose" data-section-type="press-quotes" data-section-id="{{ section.id }}">
 
-  <div class="press-quotes__texts text-xl-mob md:text-2xl-tight-desk md:pt-2">
+  <div class="press-quotes__texts mela-animate text-xl-mob md:text-2xl-tight-desk md:pt-2">
     <div class="swiper-container">
 
       <div class="swiper-wrapper">
@@ -23,7 +23,7 @@
           role="button"
           class="pt-2 pb-16 px-4 md:p-0 cursor-pointer swiper-slide md:flex-1 md:items-center relative"
           data-index="{{ forloop.index0 }}">
-            <div class="w-32 md:w-auto mx-auto md:mx-20-per">
+            <div class="w-32 md:w-auto mx-auto md:mx-20-per mela-animate delay-{{ forloop.index | times: 100 }}">
               {% include 'responsive-image',
                 image: block.settings.image,
                 wrapper_class: 'pt-40-per',
