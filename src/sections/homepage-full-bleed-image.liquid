@@ -1,0 +1,88 @@
+<section class="homepage-hero border-b md:border-b-0 md:px-8 lg:px-16 bg-rose">
+  <div class="md:relative">
+    {% if section.settings.mobile_image != blank and section.settings.mobile_image.src != blank %}
+      {% assign mobile_image = section.settings.mobile_image %}
+    {% else %}
+      {% assign mobile_image = section.settings.desktop_image %}
+    {% endif %}
+    <div class="homepage-hero__image">
+      {% include 'responsive-image' with
+        image: section.settings.desktop_image,
+        inline_aspect_ratio: true,
+        wrapper_class: 'hidden md:block'
+      %}
+      {% include 'responsive-image' with
+        image: mobile_image,
+        inline_aspect_ratio: true,
+        crop_aspect_ratio: 1,
+        wrapper_class: 'md:hidden'
+      %}
+    </div>
+
+    <div class="mela-animate image-with-text__text pt-10 pb-12 px-6 md:p-10 md:absolute md:inset-0 text-center md:text-off-white md:flex md:items-center md:justify-center">
+      <div class="md:pb-5-per">
+        {% if section.settings.title != blank %}
+          <h2 class="text-2xl-mob mb-2 md:mb-3 md:text-2xl-tight-desk lg:text-3xl-tight-desk max-w-em">{{ section.settings.title | escape }}</h2>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <div class="md:text-lg-desk lg:text-xl-desk max-w-em">{{ section.settings.text }}</div>
+        {% endif %}
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a class="mx-auto mt-4 md:mt-6 button" href="{{ section.settings.button_link }}">
+            {{ section.settings.button_label | escape }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Full-Bleed Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Desktop Image",
+        "info": "Landscape image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image",
+        "info": "Square image. Other aspect ratios will be cropped to square format. If not provided, desktop image will be used."
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Luptatia Quis, Sum Veles"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text",
+        "default": "Luptatia cumet, sum veles nam laborec tempor si voluptat aute voluptur lorem ispum dolorpostrum."
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "Shop Now"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link",
+        "default": "/collections"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Full-Bleed Image",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}
