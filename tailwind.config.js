@@ -1,35 +1,4 @@
-const percentSpacing = {
-  '1-per': '1%',
-  '2-per': '2%',
-  '3-per': '3%',
-  '4-per': '4%',
-  '5-per': '5%',
-  '6-per': '6%',
-  '7-per': '7%',
-  '8-per': '8%',
-  '9-per': '9%',
-  '10-per': '10%',
-  '15-per': '15%',
-  '20-per': '20%',
-  '25-per': '25%',
-  '30-per': '30%',
-  '40-per': '40%',
-  '50-per': '50%',
-  '60-per': '60%',
-  '70-per': '70%',
-  '75-per': '75%',
-  '80-per': '80%',
-  '90-per': '90%',
-  '100-per': '100%',
-  // common image aspect ratios
-  '9:16': `${((16 / 9) * 100)}%`,
-  '2:3': `${((3 / 2) * 100)}%`,
-  '3:4': `${((4 / 3) * 100)}%`,
-  '1:1': '100%', // alias 100-per
-  '4:3': `${((3 / 4) * 100)}%`,
-  '3:2': `${((2 / 3) * 100)}%`,
-  '16:9': `${((9 / 16) * 100)}%`
-}
+const tailwindSpacing = require('./tailwind_custom/tailwind-spacing');
 
 module.exports = {
   theme: {
@@ -96,15 +65,16 @@ module.exports = {
         '90': '.9',
         '100': '1'
       },
-      margin: percentSpacing,
-      padding: percentSpacing,
       transitionDelay: {
         '0': '0ms',
         '400': '400ms',
         '600': '600ms',
         '800': '800ms',
         '900': '900ms'
-      }
+      },
+      margin: tailwindSpacing,
+      padding: tailwindSpacing,
+      spacing: tailwindSpacing,
     }
   },
   variants: {

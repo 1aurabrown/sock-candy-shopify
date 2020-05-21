@@ -1,0 +1,55 @@
+{% capture grid_content %}
+  {% for block in section.blocks %}
+    {% include 'product-card' with card_product: block.settings.product %}
+  {% endfor %}
+{% endcapture %}
+
+<section class="homepage-featured-products">
+  <h2>{{ section.settings.heading }}</h2>
+  {% include 'product-grid', grid_content: grid_content %}
+</section>
+
+{% schema %}
+  {
+    "name": "Featured Products",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "heading",
+        "default": "Featured Products"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "label": "Product",
+            "id": "product",
+            "type": "product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Products",
+        "category": "Products",
+        "blocks": [
+          {
+            "type": "product"
+          },
+          {
+            "type": "product"
+          },
+          {
+            "type": "product"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

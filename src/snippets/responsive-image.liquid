@@ -7,6 +7,7 @@
     - Lazysizes Object Fit (https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/object-fit) To calculate correct image size for contrained image.
 
     Accepts:
+    placeholder_key: name of fallback svg for missing images (default: 'image')
     fit: object-fit
 
     crop_aspect_ratio: Aspect ratio used for cropping the image via Shopify image filters. If set,
@@ -22,6 +23,7 @@
 {%- endcomment -%}
 
 {%- comment -%} Added incremental number to avoid conflict styling code when the same images are using this snippet {%- endcomment -%}
+{% assign placeholder_key = placeholder_key | default: 'image' %}
 {%- capture responsive_image_counter %}{% increment responsive_image_counter %}{% endcapture -%}
 
 {% assign aspect_ratio_fallback = crop_aspect_ratio | default: image.aspect_ratio | default: 1 %}
@@ -81,12 +83,13 @@
       {{ image_attributes }}
     >
   {% else %}
-    <img class="bg-off-white absolute w-full h-full inset-0 object-{{ fit | default: 'cover' }} {{ image_class }}"
+    <img class="bg-soft-blue absolute w-full h-full inset-0 object-{{ fit | default: 'cover' }} {{ image_class }}"
     style="{{ img_styles }}"
-    src="data:image/svg+xml;utf8,{{ 'image' | placeholder_svg_tag  | escape }}" />
+    src="data:image/svg+xml;utf8,{{ placeholder_key | placeholder_svg_tag  | escape }}" />
   {% endif %}
 </div>
 
+{% assign placeholder_key = blank %}
 {% assign alt = blank %}
 {% assign inline_aspect_rtio = blank %}
 {% assign crop_aspect_ratio = blank %}

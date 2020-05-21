@@ -1,27 +1,27 @@
-<section class="press-quotes bg-rose" data-section-type="press-quotes" data-section-id="{{ section.id }}">
+<section class="press-quotes bg-rose p-0 md:p-18 md:pb-24" data-section-type="press-quotes" data-section-id="{{ section.id }}">
 
-  <div class="press-quotes__texts mela-animate text-xl-mob md:text-2xl-tight-desk md:pt-2">
+  <div class="press-quotes__texts mela-animate text-xl-mob md:text-2xl-tight-desk">
     <div class="swiper-container">
 
-      <div class="swiper-wrapper">
+      <div class="swiper-wrapper items-center">
         {% for block in section.blocks %}
-          <div class="swiper-slide p-16 pb-6 text-center" data-index="{{ forloop.index }}">
+          <div class="swiper-slide px-16 pt-12 pb-5 md:p-0 text-center" data-index="{{ forloop.index }}">
             <q>{{ block.settings.text }}</q>
           </div>
         {% endfor %}
       </div>
 
-      <div class="md:hidden swiper-pagination"></div>
+      <div class="swiper-pagination md:hidden"></div>
     </div>
 
   </div>
-  <div class="press-quotes__images md:mx-16 md:px-2 md:pb-24 md:pt-12">
+  <div class="press-quotes__images md:mt-12">
     <div class="swiper-container">
       <div class="swiper-wrapper md:flex md:flex-row">
         {% for block in section.blocks %}
           <div tabindex="0"
           role="button"
-          class="pt-2 pb-16 px-4 md:p-0 cursor-pointer swiper-slide md:flex-1 md:items-center relative"
+          class="pt-5 pb-12 md:p-0 cursor-pointer swiper-slide md:flex-1 md:items-center relative"
           data-index="{{ forloop.index0 }}">
             <div class="w-32 md:w-auto mx-auto md:mx-20-per mela-animate delay-{{ forloop.index | times: 100 }}">
               {% include 'responsive-image',
@@ -63,7 +63,7 @@
             "id": "source",
             "type": "text",
             "info": "Used as alt text for image",
-            "default": "Press Source"
+            "default": "Source"
           }
         ]
       }

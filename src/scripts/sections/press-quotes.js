@@ -1,7 +1,8 @@
+import '../../styles/components/press-quotes.css';
+
 import {register} from '@shopify/theme-sections'
 import Swiper from 'swiper';
 import Breakpoints from '../core/breakpoints-tailwind.js';
-import '../../styles/components/press-quotes.css';
 
 const selectors = {
   texts: '.press-quotes__texts .swiper-container',

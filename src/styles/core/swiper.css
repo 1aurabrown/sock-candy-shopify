@@ -1,5 +1,12 @@
 /* Swiper overrides */
 
+.swiper-pagination {
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+  @apply flex-row;
+  height: 4px;
+}
 .swiper-pagination-bullet {
   background-color: theme(colors.black.default);
   @apply opacity-20;
