@@ -6,12 +6,12 @@
   - Heading: title of the newsletter section
   - Subheading: description of the newsletter section
 {%- endcomment -%}
-<section class="newsletter bg-rose pt-9 pb-4 px-6 md:pb-9 md:pt-20 md:px-26 {{ section.settings.border_top_class }}">
+<section class="newsletter bg-rose pt-9 pb-4 px-6 md:pb-7 md:pt-14 md:px-12 lg:pb-9 lg:pt-20 lg:px-26 {{ section.settings.border_top_class }}">
   {% if section.settings.heading != blank %}
-    <label class="text-center text-xl-mob md:text-2xl-tight-desk" for="Email">{{ section.settings.heading | escape }}</label>
+    <label class="text-center text-xl-mob md:text-xl-tight-desk lg:text-2xl-tight-desk" for="Email">{{ section.settings.heading | escape }}</label>
   {% endif %}
 
-  {% form 'customer', class: "flex items-center mt-4 text-lg-mob md:text-2xl-tight-desk md:mt-12" %}
+  {% form 'customer', class: "flex items-center mt-4 text-lg-mob md:text-xl-tight-desk lg:text-2xl-tight-desk md:mt-6 lg:mt-12" %}
     {{ form.errors | default_errors }}
     {% if form.posted_successfully? %}
       <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
@@ -24,13 +24,13 @@
         placeholder="{{ section.settings.placeholder }}"
         autocorrect="off"
         autocapitalize="off"
-        class="flex-1 pt-1 mr-6">
-      <div class="py-1 pl-6 border-l">
+        class="flex-1 pt-1 mr-6 md:mr-12 lg:pt-2">
+      <div class="py-1 pl-6 border-l md:pl-12">
         <button
           type="submit"
           name="commit"
           id="Subscribe"
-          class="pt-1 mr-6">
+          class="whitespace-no-wrap pt-1 lg:pt-2">
           <span>{{ section.settings.button_text }}</span>
         </button>
       </div>
