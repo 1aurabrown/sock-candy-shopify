@@ -1,34 +1,20 @@
-<footer>
-
-  {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
-  <ul>
-    {% for social in social_accounts %}
-      {%- assign social_handle = social | handleize -%}
-      {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
-
-      {% if settings[social_link] != blank %}
-        <li>
-          <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-            <span>{{ social }}</span>
-          </a>
-        </li>
-      {% endif %}
-
-    {% endfor %}
-  </ul>
-
+<footer class='bg-orange p-9 pb-0 sm:p-16 md:p-20 lg:flex lg:flex-row lg:px-36 lg:pt-28 lg:pb-25 '>
+  <div class="lg:w-1/4">
+    <img src="{{ 'logomark.svg' | asset_url }}" class="w-9 md:w-16 lg:w-24 md:max-h-full"/>
+  </div>
   {%- assign footer_linklist = section.settings.footer_linklist -%}
   {% if linklists[footer_linklist].links.size > 0 %}
-    <ul>
-      {% for link in linklists[footer_linklist].links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-      {% endfor %}
-    </ul>
+    <nav role="navigation" class="mt-7 md:mt-12 lg:mt-0 lg:flex-1" >
+      <ul class="footer__nav-list flex flex-col flex-wrap sm:flex-row sm:flex-no-wrap sm:justify-between sm:space-x-8">
+        {% include 'nav-list', list: footer_linklist,
+        item_class: 'pb-10 sm:pb-0 footer__item'
+        link_class: 'uppercase-sm-mob md:uppercase-desk',
+        child_list_class: 'uppercase-base-mob md:base-desk'
+        child_item_class: 'mt-3'
+        %}
+      </ul>
+    </nav>
   {% endif %}
-
-  <div>
-    <small>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}. {{ powered_by_link }}</small>
-  </div>
 </footer>
 
 {% schema %}

@@ -1,31 +1,31 @@
 {% for link in linklists[list].links %}
   {% if link.links != blank %}
-    <li>
-      <a href="{{ link.url }}">{{ link.title | escape }}</a>
-      <ul>
+    <li class="{{ item_class }}">
+      <a class="{{ link_class }}" href="{{ link.url }}">{{ link.title | escape }}</a>
+      <ul class="{{ child_list_class }}">
         {% for childlink in link.links %}
           {% if childlink.links != blank %}
-            <li>
-              <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-              <ul>
+            <li class="{{ child_item_class }}">
+              <a class="{{ child_link_class }}  href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              <ul class="{{ grandchild_list_class }}">
                 {% for grandchildlink in childlink.links %}
-                  <li>
-                    <a href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
+                  <li class="{{ grandchild_item_class }}">
+                    <a class="{{ grandchild_link_class }}" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
                   </li>
                 {% endfor %}
               </ul>
             </li>
           {% else %}
-            <li>
-              <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+            <li class="{{ child_item_class }}">
+              <a class="{{ child_link_class }}  href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
             </li>
           {% endif %}
         {% endfor %}
       </ul>
     </li>
   {% else %}
-    <li>
-      <a href="{{ link.url }}">{{ link.title | escape }}</a>
+    <li class="{{ item_class }}">
+      <a class="{{ link_class }}" href="{{ link.url }}">{{ link.title | escape }}</a>
     </li>
   {% endif %}
 {% endfor %}

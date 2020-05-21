@@ -1,0 +1,30 @@
+
+.footer__nav-list {
+  max-height: 400px;
+}
+
+.footer__item {
+  @apply w-1/2;
+
+  &:nth-child(2n) {
+    @apply order-2;
+
+  }
+  &:nth-child(2n + 1) {
+    @apply order-1;
+
+  }
+}
+
+@screen sm {
+  @apply w-auto;
+  .footer__nav-list {
+    max-height: unset;
+  }
+  .footer__item {
+    @apply w-auto;
+    &:nth-child(2n), &:nth-child(2n + 1) {
+      @apply order-none;
+    }
+  }
+}
