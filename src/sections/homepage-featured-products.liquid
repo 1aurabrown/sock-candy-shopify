@@ -1,12 +1,13 @@
-{% capture grid_content %}
-  {% for block in section.blocks %}
-    {% include 'product-card' with card_product: block.settings.product %}
-  {% endfor %}
-{% endcapture %}
 
-<section class="homepage-featured-products">
-  <h2>{{ section.settings.heading }}</h2>
-  {% include 'product-grid', grid_content: grid_content %}
+<section class="homepage-featured-products bg-orange py-15">
+  <h2 class="mx-8 text-center text-xl-mob mb-8">{{ section.settings.heading }}</h2>
+
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:row-gap-64 md:col-gap-12 px-thin mx-12">
+    {% for block in section.blocks %}
+      {% include 'product-card' with card_product: block.settings.product %}
+    {% endfor %}
+  </div>
+
 </section>
 
 {% schema %}
