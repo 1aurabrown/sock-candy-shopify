@@ -1,0 +1,97 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Newsletter" section on the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the newsletter section
+  - Subheading: description of the newsletter section
+{%- endcomment -%}
+<section class="newsletter bg-rose pt-9 pb-4 px-6 md:pb-9 md:pt-20 md:px-26 {{ section.settings.border_top_class }}">
+  {% if section.settings.heading != blank %}
+    <label class="text-center text-xl-mob md:text-2xl-tight-desk" for="Email">{{ section.settings.heading | escape }}</label>
+  {% endif %}
+
+  {% form 'customer', class: "flex items-center mt-4 text-lg-mob md:text-2xl-tight-desk md:mt-12" %}
+    {{ form.errors | default_errors }}
+    {% if form.posted_successfully? %}
+      <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
+    {% else %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <input type="email"
+        name="contact[email]"
+        id="Email"
+        value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+        placeholder="{{ section.settings.placeholder }}"
+        autocorrect="off"
+        autocapitalize="off"
+        class="flex-1 pt-1 mr-6">
+      <div class="py-1 pl-6 border-l">
+        <button
+          type="submit"
+          name="commit"
+          id="Subscribe"
+          class="pt-1 mr-6">
+          <span>{{ section.settings.button_text }}</span>
+        </button>
+      </div>
+    {% endif %}
+  {% endform %}
+</section>
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "select",
+        "id": "border_top_class",
+        "label": "Top Border",
+        "default": "border-t-0",
+        "options": [
+          {
+            "value": "border-t-0",
+            "label": "None"
+          },
+          {
+            "value": "md:border-t",
+            "label": "Desktop Only"
+          },
+          {
+            "value": "border-t md:border-t-0",
+            "label":  "Mobile Only"
+          },
+          {
+            "value": "border-t",
+            "label": "Mobile & Desktop"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Let's Stay in Touch"
+      },
+      {
+        "type": "text",
+        "id": "placeholder",
+        "label": "Placeholder Text",
+        "default": "Enter your Email"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Sign me up!"
+      },
+      {
+        "type": "paragraph",
+        "content": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)"
+      }
+    ],
+    "presets": [{
+      "name": "Newsletter",
+      "category": "Promotional"
+    }]
+  }
+{% endschema %}

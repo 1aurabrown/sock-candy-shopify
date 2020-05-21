@@ -1,3 +1,9 @@
+a, .button {
+  &:focus {
+    outline: none;
+  }
+}
+
 .button {
   @apply bg-orange;
   @apply text-center;

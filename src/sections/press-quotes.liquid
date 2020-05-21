@@ -1,4 +1,4 @@
-<section class="press-quotes bg-rose p-0 md:p-18 md:pb-24" data-section-type="press-quotes" data-section-id="{{ section.id }}">
+<section class="press-quotes bg-rose p-0 md:p-18 md:pb-24 {{ section.settings.border_top_class }}" data-section-type="press-quotes" data-section-id="{{ section.id }}">
 
   <div class="press-quotes__texts mela-animate text-xl-mob md:text-2xl-tight-desk">
     <div class="swiper-container">
@@ -21,7 +21,7 @@
         {% for block in section.blocks %}
           <div tabindex="0"
           role="button"
-          class="pt-5 pb-12 md:p-0 cursor-pointer swiper-slide md:flex-1 md:items-center relative"
+          class="outline-none pt-5 pb-12 md:p-0 cursor-pointer swiper-slide md:flex-1 md:items-center relative"
           data-index="{{ forloop.index0 }}">
             <div class="w-32 md:w-auto mx-auto md:mx-20-per mela-animate delay-{{ forloop.index | times: 100 }}">
               {% include 'responsive-image',
@@ -42,6 +42,32 @@
   {
     "name": "Press Quotes",
     "max_blocks": 12,
+    "settings": [
+      {
+        "type": "select",
+        "id": "border_top_class",
+        "label": "Top Border",
+        "default": "border-t-0",
+        "options": [
+          {
+            "value": "border-t-0",
+            "label": "None"
+          },
+          {
+            "value": "md:border-t",
+            "label": "Desktop Only"
+          },
+          {
+            "value": "border-t md:border-t-0",
+            "label":  "Mobile Only"
+          },
+          {
+            "value": "border-t",
+            "label": "Mobile & Desktop"
+          }
+        ]
+      }
+    ],
     "blocks": [
       {
         "type": "press-quote",

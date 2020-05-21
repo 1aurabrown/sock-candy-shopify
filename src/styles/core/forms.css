@@ -1,0 +1,19 @@
+textarea, input, button {
+  background-color: transparent;
+  color: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  &::placeholder {
+    color: inherit;
+    @apply opacity-30;
+  }
+}
+
+button, input, textarea {
+  &:focus {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-offset: .25rem;
+    outline-color: theme('colors.off-white');
+  }
+}

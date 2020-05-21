@@ -6,7 +6,7 @@
         {% for childlink in link.links %}
           {% if childlink.links != blank %}
             <li class="{{ child_item_class }}">
-              <a class="{{ child_link_class }}  href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              <a class="{{ child_link_class }}"  href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
               <ul class="{{ grandchild_list_class }}">
                 {% for grandchildlink in childlink.links %}
                   <li class="{{ grandchild_item_class }}">
@@ -17,7 +17,7 @@
             </li>
           {% else %}
             <li class="{{ child_item_class }}">
-              <a class="{{ child_link_class }}  href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              <a class="{{ child_link_class }}"  href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
             </li>
           {% endif %}
         {% endfor %}

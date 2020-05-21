@@ -6,6 +6,9 @@
         "theme-styles": {
           "type": "theme-styles"
         },
+        "newsletter": {
+          "type": "newsletter"
+        },
         "homepage-hero": {
           "type": "homepage-hero"
         },
@@ -79,6 +82,7 @@
         "press-quotes",
         "homepage-full-bleed-image",
         "homepage-featured-products",
+        "newsletter",
         "theme-styles"
       ]
     }

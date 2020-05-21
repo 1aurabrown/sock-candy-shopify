@@ -1,5 +1,5 @@
 
-<section class="homepage-featured-products bg-orange py-15 ">
+<section class="homepage-featured-products bg-orange py-15 {{ section.settings.border_top_class }}">
   <h2 class="mx-8 text-center text-xl-mob md:text-2xl-desk mb-8">{{ section.settings.heading }}</h2>
 
   <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:row-gap-65 md:col-gap-12 mx-12 lg:mx-39">
@@ -15,6 +15,30 @@
     "name": "Featured Products",
     "max_blocks": 3,
     "settings": [
+      {
+        "type": "select",
+        "id": "border_top_class",
+        "label": "Top Border",
+        "default": "border-t-0",
+        "options": [
+          {
+            "value": "border-t-0",
+            "label": "None"
+          },
+          {
+            "value": "md:border-t",
+            "label": "Desktop Only"
+          },
+          {
+            "value": "border-t md:border-t-0",
+            "label":  "Mobile Only"
+          },
+          {
+            "value": "border-t",
+            "label": "Mobile & Desktop"
+          }
+        ]
+      },
       {
         "type": "text",
         "label": "Heading",
