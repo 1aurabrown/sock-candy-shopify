@@ -1,8 +1,8 @@
 
-<section class="homepage-featured-products bg-orange py-15">
-  <h2 class="mx-8 text-center text-xl-mob mb-8">{{ section.settings.heading }}</h2>
+<section class="homepage-featured-products bg-orange py-15 ">
+  <h2 class="mx-8 text-center text-xl-mob md:text-2xl-desk mb-8">{{ section.settings.heading }}</h2>
 
-  <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:row-gap-64 md:col-gap-12 px-thin mx-12">
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:row-gap-65 md:col-gap-12 mx-12 lg:mx-39">
     {% for block in section.blocks %}
       {% include 'product-card' with card_product: block.settings.product %}
     {% endfor %}

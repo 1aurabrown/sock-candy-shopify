@@ -15,12 +15,13 @@
     {% include 'responsive-image' with
     image: product.featured_image,
     inline_aspect_ratio: true,
+    crop_aspect_ratio: 0.8,
     placeholder_key: placeholder_key
      %}
   </div>
   <div class="flex flex-row justify-between mt-3 md:mt-6">
-    <div class="product-card__title">{{ product.title | default: onboarding_title }}</div>
-    <div class="product-card__price">{{ product.price | default: 100 }}</div>
+    <div class="product-card__title mr-6">{{ product.title | default: onboarding_title }}</div>
+    <div class="product-card__price">{{ product.price | default: 100 | money_without_trailing_zeros }}</div>
   </div>
 </a>
 
