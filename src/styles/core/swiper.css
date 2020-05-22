@@ -1,4 +1,8 @@
 /* Swiper overrides */
+.swiper-container {
+  --swiper-navigation-color: theme(colors.black.default);
+  --swiper-theme-color: theme(colors.black.default);
+}
 
 .swiper-pagination {
   @apply flex;

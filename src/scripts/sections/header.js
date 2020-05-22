@@ -1,6 +1,6 @@
-import {register} from '@shopify/theme-sections'
-import breakpoints from '../core/breakpoints-tailwind'
-import {freezeScroll, releaseScroll} from '../core/freeze-scroll'
+import { register } from '@shopify/theme-sections'
+import { Breakpoints } from '../core/breakpoints-tailwind'
+import { freezeScroll, releaseScroll } from '../core/freeze-scroll'
 import Vue from 'vue'
 
 const classes = {
@@ -17,7 +17,7 @@ const selectors = {
 
 register('header', {
   onLoad() {
-    breakpoints.on('breakpointChange', (from, to) => {
+    Breakpoints.on('breakpointChange', (from, to) => {
       console.log(`firing an event ${from} to ${to} only once`);
     })
 
@@ -41,7 +41,7 @@ register('header', {
 
   onUnload() {
     releaseScroll();
-    breakpoints.off('breakpointChange')
+    Breakpoints.off('breakpointChange')
     this.vue.destroy()
   }
 });

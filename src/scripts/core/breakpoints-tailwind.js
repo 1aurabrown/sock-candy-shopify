@@ -1,33 +1,35 @@
 import tailwindConfig from './tailwind-config';
 import Breakpoints from "@pluginjs/breakpoints"
 
-const screens = tailwindConfig.theme.screens
-const bp = Object.keys(screens).reduce((acc, key) => {
-  acc[key] = parseInt(screens[key].replace('px', ''));
+// Simple object
+const tailwindScreens = tailwindConfig.theme.screens
+const screens = Object.keys(tailwindScreens).reduce((acc, key) => {
+  acc[key] = parseInt(tailwindScreens[key].replace('px', ''));
   return acc
 }, {});
 
+// Responsive event handling
 Breakpoints({
   'xs': {
       min: 0,
-      max: bp.sm - 1
+      max: screens.sm - 1
   },
   'sm': {
-      min: bp.sm,
-      max: bp.md - 1
+      min: screens.sm,
+      max: screens.md - 1
   },
   'md': {
-      min: bp.md,
-      max: bp.lg - 1
+      min: screens.md,
+      max: screens.lg - 1
   },
   'lg': {
-      min: bp.lg,
-      max: bp.xl - 1
+      min: screens.lg,
+      max: screens.xl - 1
   },
   'xl': {
-      min: bp.xl,
+      min: screens.xl,
       max: Infinity
   },
 })
 
-export default Breakpoints
+export { screens, Breakpoints };
