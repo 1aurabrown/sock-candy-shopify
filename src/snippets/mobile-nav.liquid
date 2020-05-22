@@ -1,5 +1,10 @@
 <transition name="nav-slide">
-  <nav aria-hidden="true" v-cloak v-if="mobileNavVisible" role="navigation" class="fixed md:hidden transform duration-300 z-10 pt-12 pb-10 px-10 bg-off-white top-0 left-0 bottom-0 w-4/5 flex flex-col justify-between items-start site-header__mobile-nav-content transform duration-300 translate-x-0">
+  <nav
+    v-cloak
+    aria-hidden="true"
+    v-if="mobileNavVisible"
+    role="navigation"
+    class="site-header__mobile-nav-content fixed md:hidden transform duration-300 z-10 pt-12 pb-10 px-10 bg-off-white top-0 left-0 bottom-0 w-4/5 flex flex-col justify-between items-start transform duration-300 translate-x-0 pointer-events-auto">
     <div>
       <button type="button" role="button" v-on:click="mobileNavVisible=false" class="block w-4 site-header__close-nav" type="button">
         <img src="{{ 'close.svg' | asset_url }}" alt="Close Menu" />
@@ -17,5 +22,10 @@
 </transition>
 
 <transition name="nav-veil">
- <div aria-hidden="true" v-cloak v-if="mobileNavVisible" v-on:click="mobileNavVisible=false" class="cursor-pointer fixed inset-0 md:hidden site-header__mobile-nav-veil bg-off-white opacity-60 duration-300"></div>
+ <div
+   v-cloak
+   aria-hidden="true"
+   v-if="mobileNavVisible"
+   v-on:click="mobileNavVisible=false"
+   class="site-header__mobile-nav-veil cursor-pointer fixed inset-0 md:hidden bg-off-white opacity-60 duration-300 pointer-events-auto"></div>
 </transition>

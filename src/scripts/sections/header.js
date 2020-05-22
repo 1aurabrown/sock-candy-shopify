@@ -1,31 +1,38 @@
 import { register } from '@shopify/theme-sections'
 import { Breakpoints } from '../core/breakpoints-tailwind'
 import { freezeScroll, releaseScroll } from '../core/freeze-scroll'
+import direction from '../core/scroll-direction'
+import threshold from '../core/scroll-threshold'
 import Vue from 'vue'
-
-const classes = {
-  navVisible: 'mobile-nav-visible',
-  in: 'mobile-nav-transition-in',
-  out: 'mobile-nav-transition-out',
-}
-
-const selectors = {
-  hamburger: '.site-header__hamburger',
-  closeNavButton: '.site-header__close-nav',
-  mobileNav: '.site-header__mobile-nav'
-}
 
 register('header', {
   onLoad() {
-    Breakpoints.on('breakpointChange', (from, to) => {
-      console.log(`firing an event ${from} to ${to} only once`);
+    direction({
+      up: () => this.vue.direction = 'up',
+      down: () => this.vue.direction = 'down'
+    })
+
+    threshold({
+      pxOffset: () => {
+        return this.vue.$el.scrollHeight
+      },
+      above: () => this.vue.threshold = 'above',
+      below: () => this.vue.threshold = 'below'
+    })
+
+    Breakpoints.on('md+', {
+      enter: () => {
+        this.vue.mobileNavVisible = false
+      }
     })
 
     this.vue = new Vue ({
       el: this.container,
       delimiters: ['${', '}'],
       data: {
-        mobileNavVisible: false
+        mobileNavVisible: false,
+        direction: 'up',
+        threshold: 'above',
       },
       watch: {
         mobileNavVisible: (val) => {
@@ -34,6 +41,11 @@ register('header', {
           } else  {
             releaseScroll()
           }
+        }
+      },
+      computed: {
+        headerVisible: function() {
+          return this.threshold === 'above' || this.direction === 'up'
         }
       }
     })
