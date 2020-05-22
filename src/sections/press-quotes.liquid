@@ -1,4 +1,4 @@
-<section class="press-quotes bg-rose p-0 md:p-18 md:pb-24 {{ section.settings.border_top_class }}" data-section-type="press-quotes" data-section-id="{{ section.id }}">
+<section class="press-quotes bg-rose p-0 md:p-18 md:pb-24 mx-auto {{ section.settings.border_top_class }}" data-section-type="press-quotes" data-section-id="{{ section.id }}">
 
   <div class="press-quotes__texts mela-animate text-xl-mob md:text-2xl-tight-desk">
     <div class="swiper-container">
@@ -6,7 +6,7 @@
       <div class="swiper-wrapper items-center">
         {% for block in section.blocks %}
           <div class="swiper-slide px-16 pt-12 pb-5 md:p-0 text-center" data-index="{{ forloop.index }}">
-            <q>{{ block.settings.text }}</q>
+            <q class="block mx-auto md:max-w-screen-lg">{{ block.settings.text }}</q>
           </div>
         {% endfor %}
       </div>
@@ -16,7 +16,7 @@
 
   </div>
   <div class="press-quotes__images md:mt-12">
-    <div class="swiper-container">
+    <div class="swiper-container mx-auto md:max-w-screen-xl">
       <div class="swiper-wrapper md:flex md:flex-row">
         {% for block in section.blocks %}
           <div tabindex="0"

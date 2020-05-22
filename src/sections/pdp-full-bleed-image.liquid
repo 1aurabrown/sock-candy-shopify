@@ -1,15 +1,16 @@
-<section class="homepage-hero md:border-b-0 md:px-8 lg:px-16 bg-rose {{ section.settings.border_top_class }}">
-  <div class="md:relative">
+<section class="pdp-full-bleed-image bg-rose">
+  <div class="relative">
     {% if section.settings.mobile_image != blank and section.settings.mobile_image.src != blank %}
       {% assign mobile_image = section.settings.mobile_image %}
     {% else %}
       {% assign mobile_image = section.settings.desktop_image %}
     {% endif %}
-    <div class="homepage-hero__image">
+    <div class="pdp-full-bleed-image__image">
+      {% assign desktop_ratio = 16 | divided_by: 9.0000 %}
       {% include 'responsive-image' with
         image: section.settings.desktop_image,
         inline_aspect_ratio: true,
-        crop_aspect_ratio: 1.7,
+        crop_aspect_ratio: desktop_ratio,
         wrapper_class: 'hidden md:block'
       %}
       {% include 'responsive-image' with
@@ -20,16 +21,16 @@
       %}
     </div>
 
-    <div class="mela-animate image-with-text__text pt-10 pb-12 px-6 md:p-10 md:absolute md:inset-0 text-center md:text-off-white md:flex md:items-center md:justify-center">
-      <div class="md:pb-5-per">
+    <div class="mela-animate pdp-full-bleed-image__text text-center pt-10 pb-12 px-6 md:p-26 md:absolute inset-0 md:text-off-white md:flex items-end justify-end md:text-right">
+      <div class="">
         {% if section.settings.title != blank %}
-          <h2 class="text-2xl-mob mb-2 md:mb-3 md:text-2xl-tight-desk lg:text-3xl-tight-desk max-w-sm-em mx-auto">{{ section.settings.title | escape }}</h2>
+          <h2 class="mx-auto text-xl-mob mb-2 md:mb-3 md:mr-0 md:text-2xl-tight-desk lg:text-2xl-tight-desk max-w-sm-em">{{ section.settings.title | escape }}</h2>
         {% endif %}
         {% if section.settings.text != blank %}
-          <div class="md:text-lg-desk lg:text-xl-desk max-w-em mx-auto">{{ section.settings.text }}</div>
+          <div class="mx-auto max-w-sm-em md:mr-0 md:text-lg-desk lg:text-lg-desk">{{ section.settings.text }}</div>
         {% endif %}
         {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          <a class="mx-auto mt-4 md:mt-6 button" href="{{ section.settings.button_link }}">
+          <a class="mx-auto md:mr-0 mt-4 md:mt-6 button" href="{{ section.settings.button_link }}">
             {{ section.settings.button_label | escape }}
           </a>
         {% endif %}
@@ -40,32 +41,8 @@
 
 {% schema %}
   {
-    "name": "Homepage Hero",
+    "name": "Full-Bleed Image",
     "settings": [
-      {
-        "type": "select",
-        "id": "border_top_class",
-        "label": "Top Border",
-        "default": "border-t-0",
-        "options": [
-          {
-            "value": "border-t-0",
-            "label": "None"
-          },
-          {
-            "value": "md:border-t",
-            "label": "Desktop Only"
-          },
-          {
-            "value": "border-t md:border-t-0",
-            "label":  "Mobile Only"
-          },
-          {
-            "value": "border-t",
-            "label": "Mobile & Desktop"
-          }
-        ]
-      },
       {
         "type": "image_picker",
         "id": "desktop_image",
@@ -101,12 +78,6 @@
         "id": "button_link",
         "label": "Button link",
         "default": "/collections"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Homepage Hero",
-        "category": "Image"
       }
     ]
   }
