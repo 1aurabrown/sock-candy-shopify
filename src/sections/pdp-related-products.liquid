@@ -4,48 +4,23 @@
   {% endfor %}
 {%- endcapture -%}
 
-<section class="homepage-featured-products bg-orange {{ section.settings.border_top_class }}">
+<section class="homepage-featured-products bg-rose {{ section.settings.border_top_class }}">
   {% include 'featured-products',
   heading: section.settings.heading,
   content: content %}
 
 </section>
 
-
 {% schema %}
   {
-    "name": "Featured Products",
+    "name": "Related Products",
     "max_blocks": 3,
     "settings": [
-      {
-        "type": "select",
-        "id": "border_top_class",
-        "label": "Top Border",
-        "default": "border-t-0",
-        "options": [
-          {
-            "value": "border-t-0",
-            "label": "None"
-          },
-          {
-            "value": "md:border-t",
-            "label": "Desktop Only"
-          },
-          {
-            "value": "border-t md:border-t-0",
-            "label":  "Mobile Only"
-          },
-          {
-            "value": "border-t",
-            "label": "Mobile & Desktop"
-          }
-        ]
-      },
       {
         "type": "text",
         "label": "Heading",
         "id": "heading",
-        "default": "Featured Products"
+        "default": "Related Products"
       }
     ],
     "blocks": [
@@ -63,7 +38,7 @@
     ],
     "presets": [
       {
-        "name": "Featured Products",
+        "name": "Related Products",
         "category": "Products",
         "blocks": [
           {
