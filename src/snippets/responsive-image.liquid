@@ -50,7 +50,7 @@
 {% assign default_width = default_width | default: 500 %}
 {% assign img_url_string = default_width | append: 'x' %}
 
-{% if crop_aspect_ratio %}
+{% if crop_aspect_ratio != blank %}
   {% assign default_height = default_width | times: crop_aspect_ratio | round %}
   {% assign img_url_string = img_url_string | append: default_height %}
   {% assign default_image_url = image | img_url: img_url_string | crop: 'center' %}
@@ -91,7 +91,7 @@
 
 {% assign placeholder_key = blank %}
 {% assign alt = blank %}
-{% assign inline_aspect_rtio = blank %}
+{% assign inline_aspect_ratio = blank %}
 {% assign crop_aspect_ratio = blank %}
 {% assign image_class = blank %}
 {% assign wrapper_class = blank %}

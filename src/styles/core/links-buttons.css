@@ -1,7 +1,5 @@
-a, .button {
-  &:focus {
-    outline: none;
-  }
+*, a, .button {
+  @apply outline-none;
 }
 
 .button {
