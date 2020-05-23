@@ -29,7 +29,7 @@
     "@shopify/theme-sections": "^3.1.0",
     "core-js": "^3.6.4",
     "lazysizes": "^5.2.0",
-    "mela": "https://github.com/1aurabrown/mela.git",
+    "mela": "^1.2.1",
     "postcss-arithmetic": "^0.0.4",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",

@@ -4,9 +4,9 @@ z-10 absolute hidden md:block top-0 bottom-0 h-full outline-none w-1/4 md:w-1/8
 
 <section class="image-carousel bg-rose py-14 md:pt-32 md:pb-42 {{ section.settings.border_top_class }}" data-section-type="image-carousel" data-section-id="{{ section.id }}">
 
-  <h2 class="text-center max-w-sm-em mx-auto text-xl-mob md:text-2xl-tight-desk">{{ section.settings.heading }}</h2>
+  <h2 data-animate="slide-up" class="text-center max-w-sm-em mx-auto text-xl-mob md:text-2xl-tight-desk">{{ section.settings.heading }}</h2>
 
-  <a class="block image-carousel__images mt-6 md:mt-16" href="{{ section.settings.url }}" title="{{ section.settings.heading }}" {% if section.settings.target_blank == true %}target="blank"{% endif %}>
+  <a data-animate="fade-in delay" class="block image-carousel__images mt-6 md:mt-16" href="{{ section.settings.url }}" title="{{ section.settings.heading }}" {% if section.settings.target_blank == true %}target="blank"{% endif %}>
     <div class="swiper-container">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}

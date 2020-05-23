@@ -5,7 +5,7 @@
     {% else %}
       {% assign mobile_image = section.settings.desktop_image %}
     {% endif %}
-    <div class="homepage-full-bleed__image">
+    <div data-animate="fade-in" class="homepage-full-bleed__image">
       {% assign desktop_ratio = 16 | divided_by: 9.0000 %}
       {% include 'responsive-image' with
         image: section.settings.desktop_image,
@@ -21,8 +21,8 @@
       %}
     </div>
 
-    <div class="mela-animate image-with-text__text px-8 md:px-26 absolute inset-0 text-off-white flex items-center">
-      <div class="pt-4 md:pt-10-per">
+    <div class="image-with-text__text px-8 md:px-26 absolute inset-0 text-off-white flex items-center">
+      <div data-animate="slide-up delay" class="mt-4 md:mt-10-per">
         {% if section.settings.title != blank %}
           <h2 class="mb-2 md:mb-3 text-xl-mob md:text-2xl-tight-desk lg:text-2xl-tight-desk max-w-sm-em">{{ section.settings.title | escape }}</h2>
         {% endif %}

@@ -1,6 +1,6 @@
 <section class="pdp-split bg-orange">
   <div class="md:flex md:flex-row items-center md:px-14 md:py-16 lg:px-19 lg:py-23 justify-between">
-    <div class="pdp-split__image md:w-1/3 md:max-w-xs lg:max-w-md {{ section.settings.order }}">
+    <div data-animate="fade-in" class="pdp-split__image md:w-1/3 md:max-w-xs lg:max-w-md {{ section.settings.order }}">
       {% include 'responsive-image' with
         image: section.settings.image,
         inline_aspect_ratio: true,
@@ -8,7 +8,7 @@
       %}
     </div>
 
-    <div class="mela-animate pdp-split__text py-11 px-6 text-center md:text-left md:py-0 lg:px-10 md:w-2/3">
+    <div data-animate="slide-up delay" class="pdp-split__text py-11 px-6 text-center md:text-left md:py-0 lg:px-10 md:w-2/3">
       <div class="md:pr-8">
         {% if section.settings.text != blank %}
           <h2 class="mx-auto text-xl-mob md:text-xl-tight-desk lg:text-2xl-tight-desk max-w-sm-em">{{ section.settings.text | escape }}</h2>

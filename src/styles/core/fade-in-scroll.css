@@ -1,14 +1,31 @@
-.mela-animate {
-  @apply transform;
-  @apply duration-200;
+[data-animate] {
+  @apply delay-100;
   @apply duration-500;
-  @apply ease-out;
+  @apply ease-in-out;
+}
+
+[data-animate*="fade-in"] {
+  @apply opacity-0;
+  @apply duration-700;
+  transition-property: opacity;
+
+  &.is-visible {
+    @apply opacity-100;
+  }
+}
+
+[data-animate*="delay"] {
+  @apply delay-500;
+}
+
+[data-animate*='slide-up'] {
+  @apply transform;
   @apply translate-y-10;
   @apply opacity-0;
   overflow: visible;
   transition-property: opacity, transform;
 
-  &.mela-is-visible {
+  &.is-visible {
     @apply opacity-100;
     @apply translate-y-0;
   }

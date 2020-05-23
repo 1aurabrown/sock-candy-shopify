@@ -1,4 +1,4 @@
-{%- assign product = all_products[section.settings.product] -%}
+{%- assign product = all_products[card_product] -%}
 {%- assign current_variant = product.selected_or_first_available_variant -%}
 {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 
@@ -10,7 +10,7 @@
   {%- assign onboarding_title = 'homepage.onboarding.product_title' | t -%}
 {% endif %}
 
-<a class="product-card" href="{{ product.url }}" title="{{ product.title }}" class="md-py-1">
+<a data-animate="fade-in" class="product-card" href="{{ product.url }}" title="{{ product.title }}" class="md-py-1">
   <div class="product-card__image">
     {% include 'responsive-image' with
     image: product.featured_image,

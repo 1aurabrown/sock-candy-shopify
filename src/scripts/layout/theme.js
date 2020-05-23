@@ -30,6 +30,16 @@ const animations = mela()
 
 document.addEventListener("DOMContentLoaded", function(event) {
   listen()
-  animations();
+  animations({
+    reset: true,
+    threshold: .1
+  })
   load('*');
 });
+
+document.addEventListener("shopify:section:load", function(event) {
+  animations({
+    reset: true,
+    threshold: .1
+  });
+})
