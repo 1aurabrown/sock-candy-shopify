@@ -11,13 +11,16 @@
 {% endif %}
 
 <a data-animate="fade-in" class="product-card" href="{{ product.url }}" title="{{ product.title }}" class="md-py-1">
-  <div class="product-card__image">
+  <div class="product-card__image relative">
     {% include 'responsive-image' with
     image: product.featured_image,
     inline_aspect_ratio: true,
     crop_aspect_ratio: 0.8,
     placeholder_key: placeholder_key
      %}
+     <div class="absolute inset-0 z-10 opacity-0 transition-opacity duration-200 focus:opacity-100 hover:opacity-100 flex items-center justify-center bg-off-white bg-opacity-60">
+      <img class="w-1/4" src="{{ 'logomark.svg' | asset_url }}" alt="{{ product.title }}"/>
+     </div>
   </div>
   <div class="flex flex-row justify-between mt-3 md:mt-6">
     <div class="product-card__title mr-6">{{ product.title | default: onboarding_title }}</div>
