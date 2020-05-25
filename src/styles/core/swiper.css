@@ -12,8 +12,9 @@
   height: 4px;
 }
 .swiper-pagination-bullet {
-  background-color: theme(colors.black.default);
   @apply opacity-20;
+  @apply mx-1;
+  background-color: theme(colors.black.default);
   width: 4px;
   height: 4px;
   &.swiper-pagination-bullet-active{

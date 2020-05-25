@@ -1,28 +1,30 @@
-{%- assign current_variant = product.selected_or_first_available_variant -%}
-{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+<div class="pdp-images">
 
-{% for image in product.images %}
-  {% capture wrapper_class %}
-    {%- unless featured_image == image -%}
-      hide
-    {%- endunless -%}
-  {% endcapture %}
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
 
-  {% include 'responsive-image' with
-    image: image,
-    crop_aspect_ratio: .8,
-    inline_aspect_ratio: true
-  %}
-{% endfor %}
+      {% for image in product.images %}
+        <div class="swiper-slide">
+          <div class="">
+            {% include 'responsive-image',
+              image: image,
+              crop_aspect_ratio: .8,
+              inline_aspect_ratio: true,
+              fit: 'cover' %}
+          </div>
+        </div>
+      {% endfor %}
 
-{% if product.images.size > 1 %}
-  <ul>
-    {% for image in product.images %}
-      <li>
-        <a href="{{ image.src | img_url: '480x480' }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail{% if featured_image == image %} aria-current="true"{% endif %}>
-          <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-{% endif %}
+    </div>
+
+    <div class="pdp-images__nav md:hidden flex flex-row items-center justify-between px-6 pt-6" style="--swiper-navigation-size: 1rem">
+
+      <div class="pdp-images__prev swiper-button-prev inset-0 translate-y-0 static m-0"></div>
+
+      <div class="pdp-images__pagination"></div>
+
+      <div class="pdp-images__next swiper-button-next inset-0 translate-y-0 static m-0"></div>
+    </div>
+  </div>
+
+</div>
