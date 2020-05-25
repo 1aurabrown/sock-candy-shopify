@@ -1,7 +1,8 @@
 import srraf from 'srraf'
 
 export default function threshold ({ pxOffset, vhOffset, below, above } = options = {}) {
-  return srraf((...args) => {
+  var firstRun = true
+  const scroller = srraf((...args) => {
     const [ { py, y, vh } ] = args
     var offset;
 
@@ -18,13 +19,16 @@ export default function threshold ({ pxOffset, vhOffset, below, above } = option
         offset = vhOffset * vh;
       }
     } else {
-      offset = 0;
+      offset = 1;
     }
 
-    if (py < offset && y >= offset) {
+    if (y >= offset && (py < offset || firstRun)) {
       below && below(...args)
-    } else if (py >= offset && y < offset) {
+    } else if (y < offset && (py >= offset || firstRun)) {
       above && above(...args)
     }
+    firstRun = false
   })
+  scroller.update()
+  return scroller
 }

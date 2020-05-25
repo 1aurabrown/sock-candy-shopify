@@ -7,7 +7,7 @@
 {% endcapture %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header" class="site-header">
-  <div class="pointer-events-auto duration-300 transform translate-y-0" v-bind:class="{ '-translate-y-full': !headerVisible }">
+  <div class="pointer-events-auto duration-300 transform translate-y-0">
     {% if section.settings.announcement != blank %}
       <div class="site-header__announcement text-center px-8 lg:px-10 py-2 md:py-4 bg-orange border-b-2 flex-center">
         <p class="pt-1">{{ section.settings.announcement }}</p>
@@ -62,7 +62,7 @@
 {% schema %}
   {
     "name": "Header",
-    "class": "sticky top-0 z-90 pointer-events-none",
+    "class": "z-90 ease-in-out transform translate-y-0 top-0 left-0 right-0 w-full",
     "settings": [
       {
         "type": "text",

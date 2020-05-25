@@ -11,7 +11,7 @@ export default function direction ({ up, down } = options = {}) {
 
     if (py < y) {
       dir = 'down'
-    } else {
+    } else if (y < py) {
       dir = 'up'
     }
 
