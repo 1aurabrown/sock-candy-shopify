@@ -1,5 +1,20 @@
-<div class="pdp-images">
+<div class="pdp-images relative">
 
+  <div class="pdp-images__thumbs hidden md:flex flex-col absolute t-0 l-0 z-10 w-1/8 transform -translate-x-1/2">
+    <div class="mt-30-per">
+      {% for image in product.images %}
+          <div
+          data-index="{{ forloop.index0 }}"
+          class="cursor-pointer pdp-images__thumb rounded-full overflow-hidden border-2 mt-15-per">
+            {% include 'responsive-image',
+              image: image,
+              crop_aspect_ratio: 1,
+              inline_aspect_ratio: true,
+              fit: 'cover' %}
+          </div>
+      {% endfor %}
+    </div>
+  </div>
   <div class="swiper-container">
     <div class="swiper-wrapper">
 

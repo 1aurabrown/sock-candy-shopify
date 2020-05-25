@@ -7,13 +7,18 @@ const selectors = {
   slides: '.pdp-images .swiper-slide',
   prev: '.pdp-images .swiper-button-prev',
   next:'.pdp-images .swiper-button-next',
-  pagination:'.pdp-images__pagination'
+  pagination:'.pdp-images__pagination',
+  thumbs: '.pdp-images__thumb'
 }
 
 register('product', {
   onLoad() {
+    this.thumbClicked = this.thumbClicked.bind(this)
     const imagesEl = this.container.querySelector(selectors.swiperContainer)
-    const sliderBreakpoints = {}
+    this.thumbs = this.container.querySelectorAll(selectors.thumbs)
+    this.thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', this.thumbClicked)
+    })
 
     this.imageSwiper = new Swiper(imagesEl, {
       loop: true,
@@ -32,8 +37,16 @@ register('product', {
     });
   },
 
+  thumbClicked(e) {
+    const index = parseInt(e.currentTarget.dataset.index)
+    this.imageSwiper.slideToLoop(index)
+  },
+
   onUnload() {
     if (this.imageSwiper) this.imageSwiper.destroy();
+    this.thumbs.forEach(thumb => {
+      thumb.removeEventListener('click', this.thumbClicked)
+    })
   }
 });
 

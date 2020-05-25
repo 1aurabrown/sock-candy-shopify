@@ -88,7 +88,7 @@ module.exports = {
   '80-per': '80%',
   '90-per': '90%',
   '100-per': '100%',
-  // common image aspect ratios
+   // common image aspect ratios
   '9:16': `${((16 / 9) * 100)}%`,
   '2:3': `${((3 / 2) * 100)}%`,
   '3:4': `${((4 / 3) * 100)}%`,
