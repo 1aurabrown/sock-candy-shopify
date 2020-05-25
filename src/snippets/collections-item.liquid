@@ -1,0 +1,18 @@
+<div class="collections__collection {{ class }} pb-12 pt-10 md:pt-26 md:pb-36 px-4 md:px-16 lg:px-40">
+  <h2 class="text-center text-xl-mob md:text-2xl-tight-desk">{{ collection.title }}</h2>
+  <p class="text-center max-w-em mx-auto md:text-lg-desk mt-2 md:mt-5">{{ collection.description }}</p>
+
+  <div class="collections__grid grid grid-cols-2 gap-6 mt-8 md:grid-cols-3 md:row-gap-16 md:col-gap-12 md:mt-17">
+
+    {% for product in collection.products %}
+
+      {% include 'product-card' with card_product: block.settings.product %}
+
+    {% endfor %}
+
+  </div>
+
+</div>
+
+{% assign class = blank %}
+{% assign collection = blank %}
