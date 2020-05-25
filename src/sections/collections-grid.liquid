@@ -1,0 +1,41 @@
+{% comment %}
+  This page represents the /collection, /collections and /collections pages.
+{% endcomment %}
+<section class="collections-grid">
+  {% for block in section.blocks %}
+    {% assign collection = collections[block.settings.collection] %}
+    {% capture class %}
+      {% assign alternator = forloop.index | modulo: 2 %}
+      {% if alternator == 0 %}
+        bg-rose
+      {% else %}
+        bg-orange
+      {% endif %}
+    {% endcapture %}
+    {% include 'collection-grid', collection: collection, class: class %}
+  {% else %}
+    {% include 'collection-grid', collection: collections['all'], class: 'bg-orange' %}
+    {% include 'collection-grid', collection: collections['all'], class: 'bg-rose'  %}
+  {% endfor %}
+</section>
+
+
+{% schema %}
+  {
+    "name": "Collections Grid",
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "collection",
+            "label": "Collection",
+            "id": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+

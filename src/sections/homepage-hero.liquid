@@ -9,18 +9,16 @@
       {% include 'responsive-image' with
         image: section.settings.desktop_image,
         inline_aspect_ratio: true,
-        crop_aspect_ratio: 1.7,
         wrapper_class: 'hidden md:block'
       %}
       {% include 'responsive-image' with
         image: mobile_image,
         inline_aspect_ratio: true,
-        crop_aspect_ratio: 1,
         wrapper_class: 'md:hidden'
       %}
     </div>
 
-    <div data-animate="slide-up delay" class="image-with-text__text pt-10 pb-12 px-6 md:p-10 md:absolute md:inset-0 text-center md:text-off-white md:flex md:items-center md:justify-center">
+    <div data-animate="slide-up delay" class="homepage-hero__text pt-10 pb-12 px-6 md:p-10 md:absolute md:inset-0 text-center md:text-off-white md:flex md:items-center md:justify-center">
       <div class="md:pb-5-per">
         {% if section.settings.title != blank %}
           <h2 class="text-2xl-mob mb-2 md:mb-3 md:text-2xl-tight-desk lg:text-3xl-tight-desk max-w-sm-em mx-auto">{{ section.settings.title | escape }}</h2>
