@@ -43,3 +43,7 @@ q::after {
     }
   }
 }
+
+svg.icon {
+  fill: currentColor;
+}

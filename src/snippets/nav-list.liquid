@@ -1,23 +1,35 @@
 {% for link in linklists[list].links %}
   {% if link.links != blank %}
     <li class="{{ item_class }}">
-      <a class="{{ link_class }}" href="{{ link.url }}">{{ link.title | escape }}</a>
+      <a class="{{ link_class }}" href="{{ link.url }}">
+        {{ link.title | escape }}
+        {% if social_icons == true %}{% include 'link-icon', link: link %}{% endif %}
+      </a>
       <ul class="{{ child_list_class }}">
         {% for childlink in link.links %}
           {% if childlink.links != blank %}
             <li class="{{ child_item_class }}">
-              <a class="{{ child_link_class }}"  href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              <a class="{{ child_link_class }}"  href="{{ childlink.url }}">
+                {{ childlink.title | escape }}
+                {% if social_icons == true %}{% include 'link-icon', link: childlink %}{% endif %}
+              </a>
               <ul class="{{ grandchild_list_class }}">
                 {% for grandchildlink in childlink.links %}
                   <li class="{{ grandchild_item_class }}">
-                    <a class="{{ grandchild_link_class }}" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>
+                    <a class="{{ grandchild_link_class }}" href="{{ grandchildlink.url }}">
+                      {{ grandchildlink.title | escape }}
+                      {% if social_icons == true %}{% include 'link-icon', link: grandchildlink %}{% endif %}
+                    </a>
                   </li>
                 {% endfor %}
               </ul>
             </li>
           {% else %}
             <li class="{{ child_item_class }}">
-              <a class="{{ child_link_class }}"  href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              <a class="{{ child_link_class }}"  href="{{ childlink.url }}">
+                {{ childlink.title | escape }}
+                {% if social_icons == true %}{% include 'link-icon', link: childlink %}{% endif %}
+              </a>
             </li>
           {% endif %}
         {% endfor %}
@@ -25,7 +37,10 @@
     </li>
   {% else %}
     <li class="{{ item_class }}">
-      <a class="{{ link_class }}" href="{{ link.url }}">{{ link.title | escape }}</a>
+      <a class="{{ link_class }}" href="{{ link.url }}">
+        {{ link.title | escape }}
+        {% if social_icons == true %}{% include 'link-icon', link: link %}{% endif %}
+      </a>
     </li>
   {% endif %}
 {% endfor %}
