@@ -28,6 +28,7 @@
     "@shopify/theme-product-form": "^3.1.0",
     "@shopify/theme-sections": "^3.1.0",
     "core-js": "^3.6.4",
+    "dom-slider": "^2.1.4",
     "lazysizes": "^5.2.0",
     "mela": "^1.2.1",
     "postcss-arithmetic": "^0.0.4",

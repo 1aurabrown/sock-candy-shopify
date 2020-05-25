@@ -1,6 +1,13 @@
-<div class="product__details mt-10 text-left">
-  <div data-detail="care" class="border-t-1 px-3 py-4 md:py-6 md:px-0">
-    <h3 class="uppercase-md-mob md:uppercase-desk">Care</h3>
-    <p class="pt-3">Wash inside out in cold water with like colors. Hang dry or tumble dry low. Do not bleach. </p>
-  </div>
+<div class="pdp-details mt-10 text-left">
+  {% assign details = 'Care, Materials, Other' | split: ', ' %}
+  {% for item in details %}
+    <div class="pdp-details__item border-t-1 px-3 py-4 md:py-5 md:px-0">
+      <h3 class="mt-thin md:mt-1 cursor-pointer pdp-details__heading uppercase-md-mob md:uppercase-desk">{{ item }}</h3>
+
+      <div class="pdp-details__content hidden">
+        <p class="pt-3">Wash inside out in cold water with like colors. Hang dry or tumble dry low. Do not bleach. </p>
+      </div>
+
+    </div>
+  {% endfor %}
 </div>
