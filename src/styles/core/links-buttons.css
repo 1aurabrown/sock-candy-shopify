@@ -1,15 +1,17 @@
 *, a, .button {
-  @apply outline-none;
+  &, &:focus {
+    @apply outline-none;
+  }
 }
 
 .button {
+  @apply inline-block;
   @apply bg-orange;
   @apply text-center;
   @apply text-base-mob;
   @apply border-2;
   @apply border-black;
   @apply text-black;
-  @apply block;
   @apply pt-3;
   @apply pb-2;
   @apply px-10;

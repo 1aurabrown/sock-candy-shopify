@@ -9,7 +9,7 @@ textarea, input, button {
   }
 }
 
-button, input, textarea {
+button:not(.button), input, textarea {
   &:focus {
     outline-style: solid;
     outline-width: 2px;

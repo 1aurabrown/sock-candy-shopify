@@ -1,0 +1,20 @@
+<h1 class="text-xl-mob md:text-xl-tight-desk xl:text-2xl-tight-desk">{{ product.title }}</h1>
+
+<div class="text-lg-mob text-base-desk mt-3 md:mt-6" data-price-wrapper>
+  <span data-product-price>
+    {{ current_variant.price | money }}
+  </span>
+
+  {% if product.compare_at_price_max > product.price %}
+    <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+    <s data-compare-price>
+      {% if current_variant.compare_at_price > current_variant.price %}
+        {{ current_variant.compare_at_price | money }}
+      {% endif %}
+    </s>
+  {% endif %}
+</div>
+
+<div class="rte mt-4 md:mt-8">
+  {{ product.description }}
+</div>
