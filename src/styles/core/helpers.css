@@ -36,6 +36,11 @@
   display: none !important;
 }
 
+.max-w-lg-em {
+  /* Limit text width proportionally to type size.*/
+  max-width: 40em;
+}
+
 .max-w-em {
   /* Limit text width proportionally to type size, should be around 60 characters wide.*/
   max-width: 30em;
@@ -43,7 +48,7 @@
 
 
 .max-w-sm-em {
-  /* Limit text width proportionally to type size, should be around 60 characters wide.*/
+  /* Limit text width proportionally to type size.*/
   max-width: 18em;
 }
 

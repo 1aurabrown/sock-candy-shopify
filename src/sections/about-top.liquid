@@ -1,0 +1,64 @@
+<section>
+  <div class="relative">
+    {% if section.settings.mobile_image != blank and section.settings.mobile_image.src != blank %}
+      {% assign mobile_image = section.settings.mobile_image %}
+    {% else %}
+      {% assign mobile_image = section.settings.desktop_image %}
+    {% endif %}
+
+    <div data-animate="fade-in">
+      {% include 'responsive-image' with
+        image: section.settings.desktop_image,
+        inline_aspect_ratio: true,
+        wrapper_class: 'hidden md:block'
+      %}
+      {% include 'responsive-image' with
+        image: mobile_image,
+        inline_aspect_ratio: true,
+        wrapper_class: 'md:hidden'
+      %}
+    </div>
+
+    {% if section.settings.show_logo == true %}
+      <div class="text-off-white absolute inset-0 transition-opacity flex items-center justify-center">
+        <div class="w-1/6 md:w-1/8" data-animate="slide-up"> {% include 'logomark.svg' %} </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="text-center p-6 pb-16 max-w-lg-em mx-auto md:text-lg-desk md:p-20 md:pt-16 lg:pb-40">
+    {{ section.settings.text }}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "About Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Desktop Image",
+        "info": "Landscape image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image",
+        "info": "If not provided, desktop image will be used."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_logo",
+        "label": "Display Logo over Image",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text",
+        "default": "Sock Candy is a fashion-sock line that celebrates colorfully unconventional personal style. Created by fashion influencer Mary Gui, Sock Candy is inspired by whimsical prints, bold colors, and quirky combinations. Designed with the socks and sandals pairing in mind, our socks are meant to be the eye candy and feature one-of-a-kind prints with high quality mercerized cotton."
+      }
+    ]
+  }
+{% endschema %}

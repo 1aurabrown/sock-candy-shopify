@@ -1,0 +1,80 @@
+<section class="lg:space-y-40 lg:px-20 lg:pb-52">
+  {% for block in section.blocks %}
+    {% assign settings = block.settings %}
+
+    {% if settings.layout == "text_left" %}
+      {% assign container_class = "lg:flex-row" %}
+        {% assign text_class = "lg:text-left lg:pl-12 lg:pl-16 lg:items-start" %}
+    {% elsif settings.layout == "text_right" %}
+      {% assign container_class = "lg:flex-row-reverse" %}
+      {% assign text_class = "lg:text-right  lg:pr-12 lg:pr-16 lg:items-end" %}
+    {% endif %}
+
+    <div class="lg:flex lg:items-stretch lg:max-w-screen-xl lg:mx-auto {{ container_class }}">
+      <div class="lg:flex-0 lg:w-1/2">
+
+        <div data-animate="fade-in">
+          {% include 'responsive-image' with
+            image: settings.image,
+            inline_aspect_ratio: true,
+            crop_aspect_ratio: 1.6
+          %}
+        </div>
+
+      </div>
+      <div class="text-center p-6 pb-16 md:p-20 md:pt-16 lg:p-0 lg:m-0 lg:flex-0 lg:w-1/2 flex flex-col items-center justify-center {{ text_class }}">
+        <h2 class="text-xl-mob md:text-2xl-tight-desk max-w-sm-em">{{ settings.heading }}</h2>
+        <p class="mt-3 max-w-em md:text-lg-desk md:mt-6">{{ settings.text }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% schema %}
+  {
+    "name": "About Sections",
+    "blocks": [
+      {
+        "type": "about-section",
+        "name": "Section",
+        "settings": [
+          {
+            "label": "Heading",
+            "id": "heading",
+            "type": "text",
+            "default": "Break the Rules"
+          },
+          {
+            "label": "Text",
+            "id": "text",
+            "type": "textarea",
+            "default": "We believe there are no rules when it comes to personal style. We love experimenting with playful combinations, and aren’t afraid to wear an outfit that makes us stand out."
+          },
+          {
+            "label": "Image",
+            "id": "image",
+            "type": "image_picker"
+          },
+          {
+            "type": "select",
+            "id": "layout",
+            "label": "Layout",
+            "default": "text_left",
+            "options": [
+              {
+                "value": "text_left",
+                "label": "Text Left"
+              },
+              {
+                "value": "text_right",
+                "label": "Text Right"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+

@@ -1,6 +1,6 @@
 <footer class='border-t bg-orange p-9 pb-0 sm:p-16 md:p-20 lg:flex lg:flex-row lg:px-36 lg:pt-28 lg:pb-25 '>
   <div class="lg:w-1/4">
-    <img src="{{ 'logomark.svg' | asset_url }}" class="w-9 md:w-16 lg:w-24 md:max-h-full"/>
+    <div class="w-9 md:w-16 lg:w-24 md:max-h-full">{% include 'logomark.svg' %}</div>
   </div>
   {%- assign footer_linklist = section.settings.footer_linklist -%}
   {% if linklists[footer_linklist].links.size > 0 %}

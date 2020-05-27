@@ -19,7 +19,7 @@
     placeholder_key: placeholder_key
      %}
      <div class="absolute inset-0 opacity-0 transition-opacity duration-200 focus:opacity-100 hover:opacity-100 flex items-center justify-center bg-off-white bg-opacity-60">
-      <img class="w-1/4" src="{{ 'logomark.svg' | asset_url }}" alt="{{ product.title }}"/>
+      <div class="w-1/4">{% include 'logomark.svg' %}</div>
      </div>
   </div>
   <div class="flex flex-row justify-between mt-3 md:mt-6">
