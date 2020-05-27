@@ -1,5 +1,4 @@
 [data-animate] {
-  @apply delay-100;
   @apply duration-500;
   @apply ease-in-out;
 }
