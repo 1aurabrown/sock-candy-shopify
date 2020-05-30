@@ -1,56 +1,43 @@
-{%- capture content -%}
-  {% for block in section.blocks %}
-    {% include 'product-card' with card_product: block.settings.product %}
-  {% endfor %}
-{%- endcapture -%}
+{% assign related_product_ids =  product.metafields.accentuate.related_products | split: '|' %}
 
-<section class="homepage-featured-products bg-rose {{ section.settings.border_top_class }}">
-  {% include 'featured-products',
-  heading: section.settings.heading,
-  content: content %}
+{% if related_product_ids.size > 0 %}
+  <section class="bg-rose pt-12 pb-14 md:pt-34 md:pb-38 border-t md:border-t-0">
 
-</section>
+    <div class="px-4 md:px-16 lg:px-40">
+      <h2 data-animate="slide-up" class="text-center text-xl-mob md:text-2xl-tight-desk">{{ section.settings.heading }}</h2>
+
+      <div class="grid grid-cols-2 col-gap-3 row-gap-6 mt-8 md:grid-cols-3 md:row-gap-16 md:col-gap-12 md:mt-16">
+        {% for related_id in related_product_ids %}
+
+          {% if forloop.index > 3 %}
+            {% break %}
+          {% endif %}
+
+          {% if forloop.index > 2 %}
+            {% assign card_class = "hidden md:block" %}
+          {% endif %}
+
+          {% assign related_product = all_products[related_id] %}
+
+          {% include 'product-card',
+            card_product: related_product,
+            card_class: card_class %}
+        {% endfor %}
+      </div>
+    </div>
+
+  </section>
+{% endif %}
 
 {% schema %}
   {
     "name": "Related Products",
-    "max_blocks": 3,
     "settings": [
       {
         "type": "text",
         "label": "Heading",
         "id": "heading",
         "default": "Related Products"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "product",
-        "name": "Product",
-        "settings": [
-          {
-            "label": "Product",
-            "id": "product",
-            "type": "product"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Related Products",
-        "category": "Products",
-        "blocks": [
-          {
-            "type": "product"
-          },
-          {
-            "type": "product"
-          },
-          {
-            "type": "product"
-          }
-        ]
       }
     ]
   }
