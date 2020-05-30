@@ -1,13 +1,28 @@
-<div class="pdp-details mt-10 text-left">
-  {% assign details = 'Care, Materials, Other' | split: ', ' %}
-  {% for item in details %}
-    <div class="pdp-details__item border-t-1 px-3 py-4 md:py-5 md:px-0">
-      <h3 class="mt-thin md:mt-1 cursor-pointer pdp-details__heading uppercase-md-mob md:uppercase-desk">{{ item }}</h3>
+{% assign section_headings = product.metafields.accentuate.product_section_heading  %}
+{% assign section_contents = product.metafields.accentuate.product_section_content  %}
 
-      <div class="pdp-details__content hidden">
-        <p class="pt-3">Wash inside out in cold water with like colors. Hang dry or tumble dry low. Do not bleach. </p>
-      </div>
+{% if section_headings.size > 0 and section_contents.size > 0 %}
 
-    </div>
-  {% endfor %}
-</div>
+  <div class="pdp-details mt-10 text-left">
+
+    {% for heading in section_headings %}
+      {% assign contents = section_contents[forloop.index0] %}
+
+      {% if heading != blank and contents != blank %}
+
+        <div class="pdp-details__item border-t-1 px-3 py-4 md:py-5 md:px-0">
+
+          <h3 class="mt-thin md:mt-1 cursor-pointer pdp-details__heading uppercase-md-mob md:uppercase-desk">{{ heading }}</h3>
+
+          <div class="pdp-details__content hidden">
+            <p class="pt-3">{{ contents }}</p>
+          </div>
+
+        </div>
+
+      {% endif %}
+
+    {% endfor %}
+  </div>
+
+{% endif %}
