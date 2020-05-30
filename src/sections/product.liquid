@@ -1,3 +1,5 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
 <section data-section-id="{{ section.id }}" data-section-type="product" class="md:grid md:grid-cols-2 md:px-16">
   {% include 'pdp-images' %}
 
