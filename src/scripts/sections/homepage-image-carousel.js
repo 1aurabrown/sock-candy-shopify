@@ -1,6 +1,6 @@
 import {register} from '@shopify/theme-sections'
 import Swiper from 'swiper';
-import { screens } from '../core/breakpoints-tailwind.js';
+import { screens } from '../core/breakpoints-tailwind';
 
 const selectors = {
   swiperContainer: '.swiper-container',

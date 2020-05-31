@@ -1,6 +1,6 @@
 import {register} from '@shopify/theme-sections'
-import ProductImages from '../components/product-images.js';
-import ProductDetails from '../components/product-details.js';
+import ProductImages from '../components/product-images';
+import ProductDetails from '../components/product-details';
 
 register('product', {
   onLoad() {

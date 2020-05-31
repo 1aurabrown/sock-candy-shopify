@@ -1,11 +1,5 @@
 // Global imports for all views using default layout
 
-// Styles
-
-// for some reason errors when imported via postcss-import
-import 'swiper/css/swiper.css';
-
-import '../../styles/theme.css';
 
 // External
 

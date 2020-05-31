@@ -1,0 +1,64 @@
+<section data-section-type="page-faq" data-section-id="{{ section.id }}">
+  {% for block in section.block %}
+    {% if block.type == 'heading' %}
+      <h2>{{ block.settings.text }}</h2>
+    {% elsif block.type == 'item' %}
+
+      {% assign question = block.settings.question %}
+      {% assign answer = block.settings.answer %}
+
+      {% if question != blank and answer != blank %}
+
+        <div class="faq-item border-t-1 px-3 py-4 md:py-5 md:px-0">
+
+          <h3 class="mt-thin md:mt-1 cursor-pointer faq-item__heading uppercase-md-mob md:uppercase-desk">{{ question }}</h3>
+
+          <div class="faq-item__content hidden">
+            <p class="pt-3">{{ answer }}</p>
+          </div>
+
+        </div>
+
+      {% endif %}
+
+    {% endif %}
+  {% endfor %}
+</section>
+
+{% schema %}
+  {
+    "name": "FAQ",
+      "blocks": [
+      {
+        "type": "heading",
+        "name": "Section Heading",
+        "settings": [
+          {
+            "label": "Section Heading",
+            "id": "text",
+            "type": "textarea",
+            "default": "Product & Care"
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "name": "FAQ Item",
+        "settings": [
+          {
+            "label": "Question",
+            "id": "question",
+            "type": "textarea",
+            "default": "How do I wash and care for my socks?"
+          },
+          {
+            "label": "Answer",
+            "id": "answer",
+            "type": "textarea",
+            "default": "<p>To best preserve the color, quality and lifespan of your Sock Candy socks, turn the socks inside out and wash in cold water.</p><p>Our socks will last longer if hang dried. If you must use the dryer for the cotton socks, please use the tumble dry low setting. Sheer socks should not be tumbled dried.</p>"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
