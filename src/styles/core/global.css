@@ -23,27 +23,6 @@ q::after {
     content: close-quote;
 }
 
-
-@responsive {
-  @screen md {
-    .border {
-      border-width: 3px;
-    }
-    .border-t {
-      border-top-width: 3px;
-    }
-    .border-l {
-      border-left-width: 3px;
-    }
-    .border-b {
-      border-bottom-width: 3px;
-    }
-    .border-r {
-      border-right-width: 3px;
-    }
-  }
-}
-
 svg.icon {
   fill: currentColor;
 }

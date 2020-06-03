@@ -17,7 +17,8 @@ var config = {
           // sync + async chunks
           chunks: 'all',
           // import file path containing node_modules
-          test: /node_modules/
+          test: /node_modules(?!\/tailwindcss)/,
+          minSize: 0
         }
       }
     },

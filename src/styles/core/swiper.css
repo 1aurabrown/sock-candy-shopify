@@ -11,6 +11,7 @@
   @apply flex-row;
   height: 4px;
 }
+
 .swiper-pagination-bullet {
   @apply opacity-20;
   @apply mx-1;
