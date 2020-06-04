@@ -26,3 +26,7 @@ q::after {
 svg.icon {
   fill: currentColor;
 }
+
+.paragraphs p + p {
+  margin-top: 1em;
+}
