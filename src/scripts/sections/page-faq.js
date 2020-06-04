@@ -4,7 +4,8 @@ import {register} from '@shopify/theme-sections'
 const selectors = {
   itemContainer: '.faq-item',
   itemHeading: '.faq-item__heading',
-  itemContent: '.faq-item__content'
+  itemContent: '.faq-item__content',
+  arrow: '.faq-item__toggle-arrow'
 }
 
 register('page-faq', {
@@ -20,6 +21,7 @@ register('page-faq', {
 
   headingClicked(e) {
     const heading = e.currentTarget
+    const arrow = heading.querySelector(selectors.arrow)
     const thisContent = heading.parentNode.querySelector(selectors.itemContent)
     Array.from(this.contents).forEach(content => {
       if (content === thisContent) return

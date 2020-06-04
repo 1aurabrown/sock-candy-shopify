@@ -12,7 +12,7 @@
 
         <div class="pdp-details__item border-t-1 px-3 py-4 md:py-5 md:px-0">
 
-          <h3 class="mt-thin md:mt-1 cursor-pointer pdp-details__heading uppercase-md-mob md:uppercase-desk">{{ heading }}</h3>
+          <h3 class="cursor-pointer pdp-details__heading uppercase-md-mob md:uppercase-desk flex flex-row justify-between items-center"><span class="mt-thin md:mt-1">{{ heading }}</span>{% include 'arrow-right.svg' %}</h3>
 
           <div class="pdp-details__content hidden">
             <p class="pt-3">{{ contents }}</p>

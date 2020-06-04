@@ -42,3 +42,10 @@ a, button, .button {
   }
 }
 
+svg.arrow-right {
+  width: 8px;
+  @screen md {
+    width: 10px;
+  }
+}
+
