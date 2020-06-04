@@ -17,9 +17,6 @@ import 'lazysizes/plugins/respimg/ls.respimg'
 
 import {load} from '@shopify/theme-sections'
 
-// Global Sections
-import '../sections/header'
-
 const animations = mela()
 
 document.addEventListener("DOMContentLoaded", function(event) {

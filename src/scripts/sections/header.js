@@ -1,33 +1,20 @@
 import { register } from '@shopify/theme-sections'
-import { Breakpoints } from '../core/breakpoints-tailwind'
-import { freezeScroll, releaseScroll } from '../core/freeze-scroll'
+import headerController from '../core/header-controller.js'
 import direction from '../core/scroll-direction'
 import threshold from '../core/scroll-threshold'
-import Vue from 'vue'
 
 const animationDuration = 500;
+
+const selectors = {
+  hamburger: '.site-header__hamburger'
+}
 
 register('header', {
   onLoad() {
     this.headerContainer = document.querySelector('#shopify-section-header')
-
-    this.vue = new Vue ({
-      el: this.container,
-      delimiters: ['${', '}'],
-      data: {
-        mobileNavVisible: false
-      },
-      watch: {
-        mobileNavVisible: (val) => {
-          if (val===true) {
-            freezeScroll()
-          } else  {
-            releaseScroll()
-          }
-        },
-
-      }
-    })
+    this.hamburger = this.container.querySelector(selectors.hamburger)
+    this.openMobileNav = this.openMobileNav.bind(this)
+    this.hamburger.addEventListener('click', this.openMobileNav)
 
     direction({
       up: () => { this.up() },
@@ -35,7 +22,7 @@ register('header', {
     })
 
     threshold({
-      pxOffset: () => { return this.vue.$el.scrollHeight },
+      pxOffset: () => { return this.container.scrollHeight },
       below: () => { this.belowHeader() }
     })
 
@@ -45,16 +32,13 @@ register('header', {
     })
 
     this.up()
-
-    Breakpoints.on('md+', {
-      enter: () => {
-        this.vue.mobileNavVisible = false
-      }
-    })
   },
 
   top() {
     console.log('top')
+
+    if (headerController.mobileNavVisible) return
+
     this.headerContainer.classList.remove(`duration-${animationDuration}`)
     this.headerContainer.classList.remove('sticky')
     this.headerContainer.classList.remove('-translate-y-full')
@@ -68,6 +52,8 @@ register('header', {
 
   belowHeader() {
     console.log('below header')
+    if (headerController.mobileNavVisible) return
+
     this.headerContainer.classList.remove(`duration-${animationDuration}`)
     this.headerContainer.classList.add('-translate-y-full')
     this.headerContainer.classList.add('sticky')
@@ -80,7 +66,8 @@ register('header', {
   },
 
   down() {
-        console.log('down')
+    console.log('down')
+    if (headerController.mobileNavVisible) return
 
     if (this.offset === 'top') return
     this.headerContainer.classList.add('-translate-y-full')
@@ -88,16 +75,19 @@ register('header', {
   },
 
   up() {
-            console.log('up')
+    console.log('up')
+    if (headerController.mobileNavVisible) return
 
     if (this.offset === 'top') return
     this.headerContainer.classList.remove('-translate-y-full')
     this.direction = 'up';
   },
 
+  openMobileNav() {
+    headerController.showNav()
+  },
+
   onUnload() {
-    releaseScroll();
-    Breakpoints.off('breakpointChange')
-    this.vue.destroy()
+    this.hamburger.removeEventListener('click', this.openMobileNav)
   }
 });

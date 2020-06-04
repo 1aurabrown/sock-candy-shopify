@@ -4,7 +4,7 @@ textarea, input, button {
   letter-spacing: inherit;
   line-height: inherit;
   &::placeholder {
-    color: inherit;
+    color: currentColor;
     @apply opacity-30;
   }
 }

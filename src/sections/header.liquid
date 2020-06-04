@@ -6,63 +6,61 @@
   uppercase-sm-mob md:uppercase-desk
 {% endcapture %}
 
-<div data-section-id="{{ section.id }}" data-section-type="header" class="site-header">
-  <div class="pointer-events-auto duration-300 transform translate-y-0">
-    {% if section.settings.announcement != blank %}
-      <div class="site-header__announcement text-center px-8 lg:px-10 py-2 md:py-4 bg-orange border-b-2 flex-center">
-        <p class="pt-1">{{ section.settings.announcement }}</p>
+<section data-section-id="{{ section.id }}" data-section-type="header" class="site-header">
+
+  {% if section.settings.announcement != blank %}
+    <div class="site-header__announcement text-center px-8 lg:px-10 py-2 md:py-4 bg-orange border-b-2 flex-center">
+      <p class="pt-1">{{ section.settings.announcement }}</p>
+    </div>
+  {% endif %}
+  <header role="banner" class="px-8 lg:px-16 flex flex-row items-center bg-rose site-header__nav">
+
+    <nav role="navigation" class="flex-1 {{ list_wrapper_class }}">
+      <button class="block w-4 mr-auto md:hidden site-header__hamburger" type="button" role="button">
+        <img src="{{ 'hamburger.svg' | asset_url }}" alt="Menu" />
+        <span class="hamburger-label uppercase-sm-mob sr-only">Menu</span>
+      </button>
+
+      <ul class="{{ desktop_list_class }} justify-start">
+        {% include 'nav-list' list: section.settings.left_linklist %}
+      </ul>
+    </nav>
+
+    {% if template.name == 'index' %}
+      <h1 class="flex-none" itemscope itemtype="http://schema.org/Organization">
+    {% else %}
+      <div class="flex-none" itemscope itemtype="http://schema.org/Organization">
+    {% endif %}
+
+      <a class="site-header__logo-wrapper block" href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+        <img class="block" src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+      </a>
+
+    {% if template.name == 'index' %}
+      </h1>
+    {% else %}
       </div>
     {% endif %}
-    <header role="banner" class="px-8 lg:px-16 flex flex-row items-center bg-rose site-header__nav">
-
-      <nav role="navigation" class="flex-1 {{ list_wrapper_class }}">
-        <button  v-on:click="mobileNavVisible = true" class="block w-4 mr-auto md:hidden site-header__hamburger" type="button" role="button">
-          <img src="{{ 'hamburger.svg' | asset_url }}" alt="Menu" />
-          <span class="hamburger-label uppercase-sm-mob sr-only">Menu</span>
-        </button>
-
-        <ul class="{{ desktop_list_class }} justify-start">
-          {% include 'nav-list' list: section.settings.left_linklist %}
-        </ul>
-      </nav>
-
-      {% if template.name == 'index' %}
-        <h1 class="flex-none" itemscope itemtype="http://schema.org/Organization">
-      {% else %}
-        <div class="flex-none" itemscope itemtype="http://schema.org/Organization">
-      {% endif %}
-
-        <a class="site-header__logo-wrapper block" href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
-          <img class="block" src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
-        </a>
-
-      {% if template.name == 'index' %}
-        </h1>
-      {% else %}
-        </div>
-      {% endif %}
 
 
-      <nav role="navigation" class="flex-1 {{ list_wrapper_class }}">
-        <ul class="{{ desktop_list_class }} justify-end">
-          {% include 'nav-list' list: section.settings.right_linklist %}
-          {% include 'account-links' %}
-          {% include 'cart-nav-list-item' %}
-        </ul>
+    <nav role="navigation" class="flex-1 {{ list_wrapper_class }}">
+      <ul class="{{ desktop_list_class }} justify-end">
+        {% include 'nav-list' list: section.settings.right_linklist %}
+        {% include 'account-links' %}
+        {% include 'cart-nav-list-item' %}
+      </ul>
 
-        <ul class="md:hidden pt-1 flex flex-row justify-end">
-          {% include 'cart-nav-list-item' %}
-        </ul>
-      </nav>
-    </header>
-  </div>
- {% include 'mobile-nav' %}
-</div>
+      <ul class="md:hidden pt-1 flex flex-row justify-end">
+        {% include 'cart-nav-list-item' %}
+      </ul>
+    </nav>
+  </header>
+</section>
 
 {% schema %}
   {
     "name": "Header",
-    "class": "z-90 ease-in-out transform translate-y-0 top-0 left-0 right-0 w-full",
+    "class": "z-80 w-full transform translate-y-0 ease-in-out top-0 left-0 right-0 w-full",
     "settings": [
       {
         "type": "text",

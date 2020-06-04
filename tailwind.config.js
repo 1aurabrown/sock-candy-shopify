@@ -46,6 +46,9 @@ module.exports = {
         tint: theme('colors.black.tint', 'currentColor'),
       }
     }),
+    borderRadius: {
+      full: '50%'
+    },
     zIndex: {
       '0': 0,
       '10': 10,
@@ -59,9 +62,6 @@ module.exports = {
       '90': 90,
       '100': 100,
       'auto': 'auto',
-    },
-    letterSpacing: {
-      normal: 'auto',
     },
     lineHeight: {
       'normal': '1.3',
@@ -126,7 +126,52 @@ module.exports = {
   variants: {
     fontFamily: [],
     lineHeight: [],
-    letterSpacing: [],
-    colors: []
+    colors: [],
+    objectFit: [],
+    textOpacity: [],
+    borderOpacity: [],
+    whitespace: [],
+    borderRadius: []
+  },
+  corePlugins: {
+    float: false,
+    clear: false,
+    objectPosition: false,
+    alignSelf: false,
+    gridColumnStart: false,
+    gridColumnEnd: false,
+    gridAutoFlow: false,
+    minHeight: false,
+    fontStyle: false,
+    fontWeight: false,
+    letterSpacing: false,
+    listStyleType: false,
+    listStylePosition: false,
+    placeholderColor: false,
+    placeholderOpacity: false,
+    textDecoration: false,
+    textTransform: false,
+    verticalAlign: false,
+    wordBreak: false,
+    backgroundAttachment: false,
+    backgroundPosition: false,
+    backgroundRepeat: false,
+    backgroundSize: false,
+    borderStyle: false,
+    divideWidth: false,
+    divideColor: false,
+    divideOpacity: false,
+    borderCollapse: false,
+    tableLayout: false,
+    boxShadow: false,
+    scale: false,
+    rotate: false,
+    skew: false,
+    transformOrigin: false,
+    resize: false,
+    userSelect: false,
+    strokeWidth: false,
+    fill: false,
+    stroke: false
   }
 }
