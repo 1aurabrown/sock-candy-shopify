@@ -141,7 +141,6 @@ module.exports = {
     gridColumnStart: false,
     gridColumnEnd: false,
     gridAutoFlow: false,
-    minHeight: false,
     fontStyle: false,
     fontWeight: false,
     letterSpacing: false,
