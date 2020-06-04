@@ -4,27 +4,24 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin');
 const CssnanoPlugin = require('cssnano-webpack-plugin');
-var fs = require('fs');
-
-const scriptRoot = './src/scripts/'
-const entries = {
-  theme: {
-    import: './scripts/layout/theme.js',
-  }
-}
-
-// Template script entries
-const templatesJS = glob.sync(scriptRoot + "templates/**/*.js").reduce((acc, path) => {
-    const entry = path.replace(scriptRoot + "templates/", '').replace('.js', '')
-    acc[entry] = {
-      import: path.replace('src/', ''),
-      dependOn: 'theme'
-    }
-    return acc
-}, entries)
 
 var config = {
   optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        // vendor chunk
+        vendor: {
+          name: 'vendor',
+          // sync + async chunks
+          chunks: 'all',
+          // import file path containing node_modules
+          test: /node_modules(?!\/tailwindcss)/,
+          minSize: 0
+        }
+      }
+    },
     minimizer: [
       new CssnanoPlugin({
         test: /.s?css?$/,
@@ -36,8 +33,7 @@ var config = {
     ]
   },
 
-  entry: templatesJS,
-
+  entry: './scripts/index.js',
 
   output: {
     path: path.join(__dirname, 'dist/assets/'),

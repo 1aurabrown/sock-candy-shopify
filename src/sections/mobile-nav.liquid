@@ -1,0 +1,54 @@
+<section data-section-id="{{ section.id }}" data-section-type="mobile-nav">
+  <transition name="nav-slide">
+    <nav
+      v-cloak
+      aria-hidden="true"
+      v-if="headerController.mobileNavVisible"
+      role="navigation"
+      class="site-header__mobile-nav-content fixed md:hidden transform duration-300 z-100 pt-12 pb-10 px-10 bg-off-white top-0 left-0 bottom-0 w-4/5 flex flex-col justify-between items-start duration-300 translate-x-0 pointer-events-auto">
+      <div>
+        <button type="button" role="button" v-on:click="headerController.hideNav()" class="block w-4 site-header__close-nav" type="button">
+          <img src="{{ 'close.svg' | asset_url }}" alt="Close Menu" />
+          <span class="hamburger-label uppercase-sm-mob sr-only">Close Menu</span>
+        </button>
+        <ul class="space-y-10 mt-10 text-xl-mob">
+          {% include 'nav-list' list: section.settings.left_linklist %}
+          {% include 'nav-list' list: section.settings.right_linklist %}
+          {% include 'account-links' %}
+          {% include 'cart-nav-list-item' %}
+        </ul>
+      </div>
+      <div class="w-10">{% include 'logomark.svg' %}</div>
+    </nav>
+  </transition>
+
+  <transition name="nav-veil">
+   <div
+     v-cloak
+     aria-hidden="true"
+     v-if="headerController.mobileNavVisible"
+     v-on:click="headerController.hideNav()"
+     class="z-90 site-header__mobile-nav-veil cursor-pointer fixed inset-0 md:hidden bg-off-white opacity-60 duration-300 pointer-events-auto"></div>
+  </transition>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "left_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "right_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}

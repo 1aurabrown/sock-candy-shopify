@@ -6,14 +6,14 @@ body {
 @responsive {
   /* 11px */
   .uppercase-sm-mob {
-    @apply uppercase;
+    text-transform: uppercase;
     font-size: 0.6875rem;
     letter-spacing: .12em;
   }
 
   /* 12px */
   .uppercase-md-mob {
-    @apply uppercase;
+    text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: .12em;
 
@@ -21,7 +21,7 @@ body {
 
   /* 20px */
   .uppercase-desk {
-    @apply uppercase;
+    text-transform: uppercase;
     font-size: 1.25rem;
     letter-spacing: .12em;
   }
