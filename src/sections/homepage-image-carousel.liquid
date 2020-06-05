@@ -6,25 +6,31 @@ z-10 absolute hidden md:block top-0 bottom-0 h-full outline-none w-1/4 md:w-1/8
 
   <h2 data-animate="slide-up" class="text-center max-w-sm-em mx-auto text-xl-mob md:text-2xl-tight-desk">{{ section.settings.heading }}</h2>
 
-  <a data-animate="fade-in delay" class="block image-carousel__images mt-6 md:mt-16" href="{{ section.settings.url }}" title="{{ section.settings.heading }}" {% if section.settings.target_blank == true %}target="blank"{% endif %}>
+  <div
+  data-animate="fade-in delay"
+  class="block image-carousel__images mt-6 md:mt-16"
+  href="{{ section.settings.url }}"
+  title="{{ section.settings.heading }}" >
     <div class="swiper-container">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
           <div class="swiper-slide w-1/2 md:w-1/4">
-            <div class="mx-3-per md:mx-4-per">
+            <a class="block mx-3-per md:mx-4-per"
+            target="_blank"
+            href="{{ block.settings.url }}">
               {% include 'responsive-image',
                 image: block.settings.image,
                 crop_aspect_ratio: 1,
                 inline_aspect_ratio: true,
                 fit: 'cover' %}
-            </div>
+            </a>
           </div>
         {% endfor %}
       </div>
       <div class="{{ navigation_class }} image-carousel__prev left-0 right-auto cursor-w-resize"></div>
       <div class="{{ navigation_class }} image-carousel__next right-0 left-auto cursor-e-resize"></div>
     </div>
-  </a>
+  </div>
 
 </section>
 
@@ -64,11 +70,6 @@ z-10 absolute hidden md:block top-0 bottom-0 h-full outline-none w-1/4 md:w-1/8
         "default": "#SockCandy"
       },
       {
-        "label": "Link URL",
-        "id": "url",
-        "type": "url"
-      },
-      {
         "label": "Open link in new window",
         "id": "target_blank",
         "type": "checkbox",
@@ -84,6 +85,12 @@ z-10 absolute hidden md:block top-0 bottom-0 h-full outline-none w-1/4 md:w-1/8
             "label": "Image",
             "id": "image",
             "type": "image_picker"
+          },
+          {
+            "label": "Link URL",
+            "id": "url",
+            "type": "url",
+            "default": "/"
           }
         ]
       }
