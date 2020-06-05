@@ -30,3 +30,7 @@ svg.icon {
 .paragraphs p + p {
   margin-top: 1em;
 }
+
+th {
+  font-weight: normal;
+}

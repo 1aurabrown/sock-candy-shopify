@@ -16,11 +16,17 @@ import 'lazysizes/plugins/respimg/ls.respimg'
 // Shopify
 
 import {load} from '@shopify/theme-sections'
+import cookiesEnabled from '../core/check-cookies'
 
 const animations = mela()
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  listen()
+  listen({
+    ignores: [
+      /\/cart\/?/,
+      uri => uri.includes('#')
+    ]
+  })
   animations({
     reset: true,
     threshold: .1
@@ -34,3 +40,12 @@ document.addEventListener("shopify:section:load", function(event) {
     threshold: .1
   });
 })
+
+
+// Apply a specific class to the html element for browser support of cookies.
+if (cookiesEnabled()) {
+  document.documentElement.className = document.documentElement.className.replace(
+    'supports-no-cookies',
+    'supports-cookies',
+  );
+}

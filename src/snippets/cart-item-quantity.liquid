@@ -1,0 +1,13 @@
+<a
+class="align-middle inline-flex items-center justify-center rounded-full border-1 w-5 h-5"
+href="/cart/change?line={{ forloop.index }}&amp;quantity={{ item.quantity | minus: 1 | at_least: 0 }}">
+  <small>-</small>
+</a>
+
+<span class="inline-block mx-thin md:mx-3" type="number" aria-label="{{ 'cart.general.item_quantity' | t }}">{% if item.quantity < 10 %}0{% endif %}{{ item.quantity }}</span>
+
+<a
+class="align-middle  inline-flex items-center justify-center rounded-full border-1 w-5 h-5"
+href="/cart/change?line={{ forloop.index }}&amp;quantity={{ item.quantity | plus: 1 }}">
+  <small>+</small>
+</a>

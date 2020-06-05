@@ -46,9 +46,6 @@ module.exports = {
         tint: theme('colors.black.tint', 'currentColor'),
       }
     }),
-    borderRadius: {
-      full: '50%'
-    },
     zIndex: {
       '0': 0,
       '10': 10,
@@ -151,7 +148,6 @@ module.exports = {
     placeholderOpacity: false,
     textDecoration: false,
     textTransform: false,
-    verticalAlign: false,
     wordBreak: false,
     backgroundAttachment: false,
     backgroundPosition: false,

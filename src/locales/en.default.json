@@ -97,7 +97,7 @@
       "subtotal": "Subtotal",
       "shipping_at_checkout": "Shipping & taxes calculated at checkout",
       "update": "Update Cart",
-      "checkout": "Check Out",
+      "checkout": "Start Checkout",
       "empty": "Your cart is currently empty.",
       "cookies_required": "Enable cookies to use the shopping cart",
       "continue_browsing_html":
@@ -106,7 +106,7 @@
       "savings": "You're saving"
     },
     "label": {
-      "product": "Product",
+      "product": "Item",
       "price": "Price",
       "quantity": "Quantity",
       "total": "Total",

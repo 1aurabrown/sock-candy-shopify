@@ -1,0 +1,133 @@
+<div class="pt-6 pb-16 md:pt-12 md:pb-45 max-w-screen-xl mx-auto px-6 md:px-10">
+  <h1 class="text-center text-2xl-mob md:text-3xl-tight-desk">{{ 'cart.general.title' | t }}</h1>
+  <div class=" mt-11 md:mt-30">
+
+    {% if cart.item_count > 0 %}
+      <form action="/cart" method="post" novalidate>
+        <table class="w-full">
+          <thead class="small--hide uppercase-sm-mob md:uppercase-desk border-b-1">
+            <tr>
+              <th class="text-left pb-3 md:pb-4 " colspan="2">{{ 'cart.label.product' | t }}</th>
+              <th class="text-center pb-3  md:pb-4 hidden md:block" >{{ 'cart.label.quantity' | t }}</th>
+              <th class="text-right pb-3  md:pb-4 " >{{ 'cart.label.price' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for item in cart.items %}
+
+
+              <tr class="">
+
+                <td class="pt-5 md:pt-7" data-label="{{ 'customer.order.product' | t }}">
+
+                  {% if item.image != blank %}
+                    <a class="block overflow-hidden rounded-full w-18 md:w-24 border" href="{{ item.url | within: collections.all }}">
+                      {% include 'responsive-image',
+                      image: item.image,
+                      crop_aspect_ratio: 1,
+                      inline_aspect_ratio: true,
+                      alt: item.title
+                      %}
+                    </a>
+                  {% endif %}
+
+                </td>
+                <td class="text-left pt-6 md:pt-8">
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+
+                  {% unless item.product.has_only_default_variant %}
+                    <p>{{ item.variant.title }}</p>
+                  {% endunless %}
+                  <p class="md:hidden">
+                    <span class="inline-block mr-1">{{ 'cart.label.quantity' | t }}:</span> {% include 'cart-item-quantity' %}
+                  </p>
+
+                  {%- assign property_size = item.properties | size -%}
+
+                  {% if property_size > 0 %}
+                    {% for p in item.properties %}
+                      {% unless p.last == blank %}
+                      {{ p.first }}:
+
+                      {% if p.last contains '/uploads/' %}
+                        <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                      {% else %}
+                        {{ p.last }}
+                      {% endif %}
+
+                      {% endunless %}
+                    {% endfor %}
+                  {% endif %}
+
+                </td>
+
+                <td  class="text-center pt-6  md:pt-8 hidden md:table-cell" data-label="{{ 'cart.label.quantity' | t }}">
+
+                  {% include 'cart-item-quantity' %}
+
+                </td>
+                <td class="text-right pt-6  md:pt-8" data-label="{{ 'cart.label.price' | t }}">
+                  {{ item.line_price | money }}
+                </td>
+              </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+
+        {% if settings.cart_notes_enable %}
+          <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+          <textarea name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+        {% endif %}
+
+        <div class="border-t-1 mt-8 pt-6 md:mt-15 md:pt-9">
+          <div class="md:ml-auto flex flex-col items-end">
+            <p>{{ 'cart.general.subtotal' | t }}: {{ cart.total_price | money }}</p>
+            {% if cart.total_discounts > 0 %}
+              <p class="mt-1 md:mt-2">{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
+            {% endif %}
+            <p class="mt-1 md:mt-2">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+            <input type="submit" name="checkout" class="cursor-pointer button mt-3 md:mt-7" value="{{ 'cart.general.checkout' | t }}">
+          </div>
+        </div>
+      </form>
+    {% else %}
+      {% comment %}
+      Cart empty state
+      {% endcomment %}
+      <div class="supports-cookies">
+        <p>{{ 'cart.general.empty' | t }}</p>
+        <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+      </div>
+
+      {% comment %}
+      Cart no cookies state
+      ---------------------
+      Browser cookies are required to use the cart. If cookies aren't enabled in the
+      browser a message is displayed prompting the user to enable them.
+      {% endcomment %}
+      <div class="supports-no-cookies">
+        <p>{{ 'cart.general.cookies_required' | t }}</p>
+      </div>
+    {% endif %}
+  </div>
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "note",
+        "label": "Note",
+        "default": "Free Shipping on all orders. Taxes calculated at checkout."
+      }
+    ]
+  }
+
+{% endschema %}
+
