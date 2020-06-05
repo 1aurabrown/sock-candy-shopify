@@ -42,10 +42,29 @@ a, button, .button {
   }
 }
 
-svg.arrow-right {
-  width: 8px;
+svg.arrow {
+  width: 12px;
+  height: 12px;
+  @apply transform;
   @screen md {
-    width: 10px;
+    width: 17px;
+    height: 17px;
+  }
+
+  &.right {
+
+  }
+
+  &.down {
+    @apply rotate-90;
+  }
+
+  &.left {
+    @apply rotate-180;
+  }
+
+  &.up {
+    @apply -rotate-90;
   }
 }
 

@@ -131,7 +131,8 @@ module.exports = {
     textOpacity: [],
     borderOpacity: [],
     whitespace: [],
-    borderRadius: []
+    borderRadius: [],
+    rotate: []
   },
   corePlugins: {
     float: false,
@@ -164,7 +165,6 @@ module.exports = {
     tableLayout: false,
     boxShadow: false,
     scale: false,
-    rotate: false,
     skew: false,
     transformOrigin: false,
     resize: false,
