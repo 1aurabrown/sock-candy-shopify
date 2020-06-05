@@ -34,11 +34,15 @@
 
     <div class="pdp-images__nav md:hidden flex flex-row items-center justify-between px-6 pt-6" style="--swiper-navigation-size: 1rem">
 
-      <div class="pdp-images__prev swiper-button-prev inset-0 translate-y-0 static m-0"></div>
+      <div class="pdp-images__prev inset-0 translate-y-0 static m-0">
+        {% include 'arrow.svg', className: 'left' %}
+      </div>
 
       <div class="pdp-images__pagination"></div>
 
-      <div class="pdp-images__next swiper-button-next inset-0 translate-y-0 static m-0"></div>
+      <div class="pdp-images__next inset-0 translate-y-0 static m-0">
+        {% include 'arrow.svg', className: 'right' %}
+      </div>
     </div>
   </div>
 

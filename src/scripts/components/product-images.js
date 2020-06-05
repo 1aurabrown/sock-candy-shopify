@@ -3,8 +3,8 @@ import Swiper from 'swiper';
 const selectors = {
   swiperContainer: '.swiper-container',
   slides: '.swiper-slide',
-  prev: '.swiper-button-prev',
-  next:'.swiper-button-next',
+  prev: '.pdp-images__prev',
+  next:'.pdp-images__next',
   pagination:'.pdp-images__pagination',
   thumbs: '.pdp-images__thumb'
 }
