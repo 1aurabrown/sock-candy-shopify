@@ -6,17 +6,14 @@
       {% assign mobile_image = section.settings.desktop_image %}
     {% endif %}
     <div data-animate="fade-in" class="pdp-full-bleed-image__image">
-      {% assign desktop_ratio = 16 | divided_by: 9.0000 %}
       {% include 'responsive-image' with
         image: section.settings.desktop_image,
-        inline_aspect_ratio: true,
-        crop_aspect_ratio: desktop_ratio,
+        inline_aspect_ratio: true
         wrapper_class: 'hidden md:block'
       %}
       {% include 'responsive-image' with
         image: mobile_image,
         inline_aspect_ratio: true,
-        crop_aspect_ratio: 1,
         wrapper_class: 'md:hidden'
       %}
     </div>
