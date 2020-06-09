@@ -41,30 +41,6 @@
     "name": "Homepage Hero",
     "settings": [
       {
-        "type": "select",
-        "id": "border_top_class",
-        "label": "Top Border",
-        "default": "border-t-0",
-        "options": [
-          {
-            "value": "border-t-0",
-            "label": "None"
-          },
-          {
-            "value": "md:border-t",
-            "label": "Desktop Only"
-          },
-          {
-            "value": "border-t md:border-t-0",
-            "label":  "Mobile Only"
-          },
-          {
-            "value": "border-t",
-            "label": "Mobile & Desktop"
-          }
-        ]
-      },
-      {
         "type": "image_picker",
         "id": "desktop_image",
         "label": "Desktop Image",
@@ -99,6 +75,30 @@
         "id": "button_link",
         "label": "Button link",
         "default": "/collections"
+      },
+      {
+        "type": "select",
+        "id": "border_top_class",
+        "label": "Top Border",
+        "default": "border-t-0",
+        "options": [
+          {
+            "value": "border-t-0",
+            "label": "None"
+          },
+          {
+            "value": "md:border-t",
+            "label": "Desktop Only"
+          },
+          {
+            "value": "border-t md:border-t-0",
+            "label":  "Mobile Only"
+          },
+          {
+            "value": "border-t",
+            "label": "Mobile & Desktop"
+          }
+        ]
       }
     ],
     "presets": [

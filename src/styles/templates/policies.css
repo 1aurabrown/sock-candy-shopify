@@ -1,0 +1,34 @@
+.shopify-policy__container {
+  @apply pt-6;
+  @apply pb-16;
+  @screen md {
+    @apply pt-12;
+    @apply pb-45;
+  }
+}
+
+.shopify-policy__title {
+  @apply text-center;
+  @apply text-2xl-mob;
+  @screen md {
+    @apply text-3xl-tight-desk;
+  }
+}
+
+
+.shopify-policy__body {
+  @apply mt-11;
+  @screen md {
+    @apply mt-30;
+  }
+
+  & strong {
+    font-weight: normal;
+    @apply text-lg-mob;
+    margin-top: 1em;
+    margin-bottom: .5em;
+    @screen md {
+      @apply text-lg-desk;
+    }
+  }
+}
