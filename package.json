@@ -40,7 +40,8 @@
     "swiper": "^5.4.0",
     "tailwindcss": "^1.4.6",
     "vsbl": "^1.3.3",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -55,7 +56,6 @@
     "postcss-discard-comments": "^4.0.0",
     "postcss-loader": "^3.0.0",
     "terser-webpack-plugin": "^3.0.1",
-    "webpack": "5.0.0-beta.14",
     "webpack-cli": "^3.3.11"
   }
 }
