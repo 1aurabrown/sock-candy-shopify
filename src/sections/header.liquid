@@ -3,22 +3,22 @@
 {% endcapture %}
 
 {% capture 'list_wrapper_class' %}
-  uppercase-sm-mob md:uppercase-desk
+  uppercase text-sm-mob md:text-base-desk
 {% endcapture %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header" class="site-header">
 
   {% if section.settings.announcement != blank %}
-    <div class="site-header__announcement text-center px-8 lg:px-10 py-2 md:py-4 bg-orange border-b-2 flex-center">
+    <div class="site-header__announcement text-center px-8 lg:px-10 py-2 md:py-3 bg-orange border-b-2 flex-center">
       <p class="pt-1">{{ section.settings.announcement }}</p>
     </div>
   {% endif %}
-  <header class="px-8 lg:px-16 flex flex-row items-center bg-rose site-header__nav">
+  <header class="px-8 lg:px-16 flex flex-row items-center bg-rose site-header__nav h-18 md:h-24">
 
     <nav class="flex-1 {{ list_wrapper_class }}">
       <button class="block w-4 mr-auto md:hidden site-header__hamburger" type="button">
         <img src="{{ 'hamburger.svg' | asset_url }}" alt="Menu" />
-        <span class="hamburger-label uppercase-sm-mob sr-only">Menu</span>
+        <span class="hamburger-label uppercase text-sm-mob sr-only">Menu</span>
       </button>
 
       <ul class="{{ desktop_list_class }} justify-start">

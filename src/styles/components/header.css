@@ -1,16 +1,8 @@
-
-.site-header__nav {
-  height: 72px;
-}
-
 .site-header__logo-wrapper {
   width: 6.25rem;
 }
 
 @screen md {
-  .site-header__nav {
-    height: 122px;
-  }
   .site-header__logo-wrapper {
     width: 12.5rem;
   }

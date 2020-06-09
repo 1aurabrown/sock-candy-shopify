@@ -17,20 +17,19 @@ module.exports = {
     },
     fontSize: theme => ({
       // mobile styles
-      'base-mob': ['0.875rem', theme('lineHeight.normal')],            // 14px
-      'lg-mob': ['1.125rem', theme('lineHeight.normal')],              // 18px
-      'xl-mob': ['1.5rem', theme('lineHeight.tight-mob')],             // 24px
-      '2xl-mob': ['2.0625rem', theme('lineHeight.tight-mob')],         // 33px
+      'base-mob': ['0.875rem', theme('lineHeight.normal')],             // 14px
+      'lg-mob': ['1.125rem', theme('lineHeight.normal')],               // 18px
+      'xl-mob': ['1.5rem', theme('lineHeight.tight-mob')],              // 24px
+      '2xl-mob': ['2.0625rem', theme('lineHeight.tight-mob')],          // 33px
       // desktop styles
-      'sm-desk': ['1.125rem', theme('lineHeight.normal')],             // 18px
-      'base-desk': ['1.25rem', theme('lineHeight.normal')],            // 20px
-      'lg-desk': ['1.625rem', theme('lineHeight.normal')],             // 26px
-      'lg-tight-desk': ['1.625rem', theme('lineHeight.tight-desk')],   // 26px
-      'xl-desk': ['1.75rem', theme('lineHeight.normal')],              // 28px
-      'xl-tight-desk': ['1.75rem', theme('lineHeight.tight-desk')],    // 28px
-      '2xl-desk': ['3rem', theme('lineHeight.normal')],                // 48px
-      '2xl-tight-desk': ['3rem', theme('lineHeight.tight-desk')],      // 48px
-      '3xl-tight-desk': ['3.9375rem', theme('lineHeight.tight-desk')]  // 63px
+      'base-desk': ['1rem', theme('lineHeight.normal')],                // 16px
+      'lg-desk': ['1.25rem', theme('lineHeight.normal')],               // 20px
+      'lg-tight-desk': ['1.25rem', theme('lineHeight.tight-desk')],     // 20px
+      'xl-desk': ['1.5625rem', theme('lineHeight.normal')],             // 25px
+      'xl-tight-desk': ['1.5625rem', theme('lineHeight.tight-desk')],   // 25px
+      '2xl-desk': ['2.4375rem', theme('lineHeight.normal')],            // 39px
+      '2xl-tight-desk': ['2.4375rem', theme('lineHeight.tight-desk')],  // 39px
+      '3xl-tight-desk': ['3rem', theme('lineHeight.tight-desk')]        // 48px
     }),
     borderWidth: {
       default: '2px',

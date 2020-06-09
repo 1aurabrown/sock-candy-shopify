@@ -5,7 +5,7 @@
     {% if cart.item_count > 0 %}
       <form action="/cart" method="post" novalidate>
         <table class="w-full">
-          <thead class="small--hide uppercase-sm-mob md:uppercase-desk border-b-1">
+          <thead class="small--hide uppercase text-sm-mob md:text-base-desk border-b-1">
             <tr>
               <th class="text-left pb-3 md:pb-4 " colspan="2">{{ 'cart.label.product' | t }}</th>
               <th class="text-center pb-3  md:pb-4 hidden md:block" >{{ 'cart.label.quantity' | t }}</th>

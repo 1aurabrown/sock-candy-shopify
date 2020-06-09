@@ -26,26 +26,15 @@
     }
   }
 
-  & h4 {
+  & h4, & h5 {
     margin-top: 1.33em;
     margin-bottom: 1.33em;
-  }
-
-  & h5 {
-    margin-top: 1.67em;
-    margin-bottom: 1.67em;
-    @screen md {
-      @apply text-sm-desk;
-    }
   }
 
   & h6 {
     margin-top: 1.33em;
     margin-bottom: 1.33em;
-    @apply uppercase-md-mob;
-    @screen md {
-      @apply uppercase-desk;
-    }
+    @apply uppercase;
   }
 
   & blockquote {

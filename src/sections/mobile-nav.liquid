@@ -8,7 +8,7 @@
       <div>
         <button v-on:click="headerController.hideNav()" class="block w-4 site-header__close-nav" type="button">
           <img src="{{ 'close.svg' | asset_url }}" alt="Close Menu" />
-          <span class="hamburger-label uppercase-sm-mob sr-only">Close Menu</span>
+          <span class="hamburger-label uppercase text-sm-mob sr-only">Close Menu</span>
         </button>
         <ul class="space-y-10 mt-10 text-xl-mob">
           {% include 'nav-list' list: section.settings.left_linklist %}
