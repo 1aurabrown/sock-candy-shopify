@@ -1,4 +1,4 @@
-<section class="press-quotes bg-rose p-0 md:p-18 md:pb-24 mx-auto {{ section.settings.border_top_class }}" data-section-type="press-quotes" data-section-id="{{ section.id }}">
+<div class="press-quotes bg-rose p-0 md:p-18 md:pb-24 mx-auto {{ section.settings.border_top_class }}" data-section-type="press-quotes" data-section-id="{{ section.id }}">
 
   <div data-animate="slide-up" class="press-quotes__texts text-xl-mob md:text-2xl-tight-desk">
     <div class="swiper-container">
@@ -19,8 +19,7 @@
     <div class="swiper-container mx-auto md:max-w-screen-xl">
       <div class="swiper-wrapper md:flex md:flex-row">
         {% for block in section.blocks %}
-          <div tabindex="0"
-          role="button"
+          <div role="button"
           class="outline-none pt-5 pb-12 md:p-0 cursor-pointer swiper-slide md:flex-1 md:items-center relative"
           data-index="{{ forloop.index0 }}">
             <div data-animate="slide-up" class="w-32 md:w-auto mx-auto md:mx-20-per delay-{{ forloop.index | times: 200 }}">
@@ -28,6 +27,7 @@
                 image: block.settings.image,
                 wrapper_class: 'pt-40-per',
                 inline_aspect_ratio: false,
+                alt: block.settings.source,
                 fit: 'contain' %}
               </div>
           </div>
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-</section>
+</div>
 
 {% schema %}
   {

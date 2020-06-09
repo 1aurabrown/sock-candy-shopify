@@ -6,17 +6,17 @@
   uppercase-sm-mob md:uppercase-desk
 {% endcapture %}
 
-<section data-section-id="{{ section.id }}" data-section-type="header" class="site-header">
+<div data-section-id="{{ section.id }}" data-section-type="header" class="site-header">
 
   {% if section.settings.announcement != blank %}
     <div class="site-header__announcement text-center px-8 lg:px-10 py-2 md:py-4 bg-orange border-b-2 flex-center">
       <p class="pt-1">{{ section.settings.announcement }}</p>
     </div>
   {% endif %}
-  <header role="banner" class="px-8 lg:px-16 flex flex-row items-center bg-rose site-header__nav">
+  <header class="px-8 lg:px-16 flex flex-row items-center bg-rose site-header__nav">
 
-    <nav role="navigation" class="flex-1 {{ list_wrapper_class }}">
-      <button class="block w-4 mr-auto md:hidden site-header__hamburger" type="button" role="button">
+    <nav class="flex-1 {{ list_wrapper_class }}">
+      <button class="block w-4 mr-auto md:hidden site-header__hamburger" type="button">
         <img src="{{ 'hamburger.svg' | asset_url }}" alt="Menu" />
         <span class="hamburger-label uppercase-sm-mob sr-only">Menu</span>
       </button>
@@ -26,24 +26,24 @@
       </ul>
     </nav>
 
-    {% if template.name == 'index' %}
+    {% if template.name == 'index' or template.name == "list-collections" %}
       <h1 class="flex-none" itemscope itemtype="http://schema.org/Organization">
     {% else %}
-      <div class="flex-none" itemscope itemtype="http://schema.org/Organization">
+      <h2 class="flex-none" itemscope itemtype="http://schema.org/Organization">
     {% endif %}
 
-      <a class="site-header__logo-wrapper block" href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+      <a class="site-header__logo-wrapper block site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}" href="/" itemprop="url" title="Home">
         <img class="block" src="{{ 'logo.svg' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
       </a>
 
-    {% if template.name == 'index' %}
+    {% if template.name == 'index' or template.name == "list-collections" %}
       </h1>
     {% else %}
-      </div>
+      </h2>
     {% endif %}
 
 
-    <nav role="navigation" class="flex-1 {{ list_wrapper_class }}">
+    <nav class="flex-1 {{ list_wrapper_class }}">
       <ul class="{{ desktop_list_class }} justify-end">
         {% include 'nav-list' list: section.settings.right_linklist %}
         {% include 'account-links' %}
@@ -55,7 +55,7 @@
       </ul>
     </nav>
   </header>
-</section>
+</div>
 
 {% schema %}
   {

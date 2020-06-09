@@ -9,7 +9,7 @@
 <section class="newsletter bg-rose pt-9 pb-4 px-6 md:pb-7 md:pt-14 md:px-12 lg:pb-9 lg:pt-20 lg:px-26 {{ section.settings.border_top_class }}">
   <div data-animate="fade-in" >
     {% if section.settings.heading != blank %}
-      <label class="text-center text-xl-mob md:text-xl-tight-desk lg:text-2xl-tight-desk" for="Email">{{ section.settings.heading | escape }}</label>
+      <h2><label class="text-center text-xl-mob md:text-xl-tight-desk lg:text-2xl-tight-desk" for="Email">{{ section.settings.heading | escape }}</label></h2>
     {% endif %}
 
     {% form 'customer', class: "flex items-center mt-4 text-lg-mob md:text-xl-tight-desk lg:text-2xl-tight-desk md:mt-6 lg:mt-12" %}

@@ -4,7 +4,7 @@
   </div>
   {%- assign footer_linklist = section.settings.footer_linklist -%}
   {% if linklists[footer_linklist].links.size > 0 %}
-    <nav role="navigation" class="mt-7 md:mt-12 lg:mt-0 lg:flex-1" >
+    <nav class="mt-7 md:mt-12 lg:mt-0 lg:flex-1" >
       <ul class="footer__nav-list flex flex-col flex-wrap sm:flex-row sm:flex-no-wrap sm:justify-between sm:space-x-8">
         {% include 'nav-list', list: footer_linklist,
         item_class: 'pb-10 sm:pb-0 footer__item'
