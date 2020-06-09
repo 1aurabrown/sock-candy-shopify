@@ -22,6 +22,16 @@
       },
       {
         "type": "header",
+        "content": "Social sharing description"
+      },
+      {
+        "type": "textarea",
+        "id": "share_description",
+        "label": "Description",
+        "info": "Shown when sharing a link on social media. [Learn more](https://help.shopify.com/manual/using-themes/troubleshooting/showing-social-media-thumbnail-images/) about image thumbnails."
+      },
+      {
+        "type": "header",
         "content": "Sharing links"
       },
       {

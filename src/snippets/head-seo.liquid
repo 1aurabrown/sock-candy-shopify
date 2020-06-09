@@ -13,6 +13,8 @@
 {%- endcapture -%}
 <title>{{ seo_title | strip }}</title>
 
-{%- if page_description -%}
+{%- if page_description != blank -%}
   <meta name="description" content="{{ page_description | escape }}">
+{%- elsif settings.share_description != blank -%}
+  <meta name="description" content="{{ settings.share_description | escape }}">
 {%- endif -%}
