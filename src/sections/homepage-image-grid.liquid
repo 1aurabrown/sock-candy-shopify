@@ -2,43 +2,36 @@
 z-10 absolute hidden md:block top-0 bottom-0 h-full outline-none w-1/4 md:w-1/8
 {%- endcapture -%}
 
-<section class="image-carousel bg-rose py-14 md:pt-32 md:pb-42 {{ section.settings.border_top_class }}" data-section-type="image-carousel" data-section-id="{{ section.id }}">
+<section class="bg-rose pt-14 md:pt-32 {{ section.settings.border_top_class }}">
 
   <h2 data-animate="slide-up" class="text-center max-w-sm-em mx-auto text-xl-mob md:text-2xl-tight-desk">{{ section.settings.heading }}</h2>
 
   <div
-  data-animate="fade-in delay"
-  class="block image-carousel__images mt-6 md:mt-16"
+  class="block mt-9 md:mt-12 grid grid-rows-4 grid-cols-2 md:grid-rows-2 md:grid-cols-4"
   href="{{ section.settings.url }}"
   title="{{ section.settings.heading }}" >
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        {% for block in section.blocks %}
-          <div class="swiper-slide w-1/2 md:w-1/4">
-            <a class="block mx-3-per md:mx-4-per"
-            target="_blank"
-            href="{{ block.settings.url }}">
-              {% include 'responsive-image',
-                image: block.settings.image,
-                crop_aspect_ratio: 1,
-                inline_aspect_ratio: true,
-                alt: block.settings.alt,
-                fit: 'cover' %}
-            </a>
-          </div>
-        {% endfor %}
-      </div>
-      <div class="{{ navigation_class }} image-carousel__prev left-0 right-auto cursor-w-resize"></div>
-      <div class="{{ navigation_class }} image-carousel__next right-0 left-auto cursor-e-resize"></div>
-    </div>
+    {% for block in section.blocks %}
+      <a
+      data-animate="fade-in delay"
+      class="block"
+      target="_blank"
+      href="{{ block.settings.url }}">
+        {% include 'responsive-image',
+          image: block.settings.image,
+          crop_aspect_ratio: 1,
+          inline_aspect_ratio: true,
+          alt: block.settings.alt,
+          fit: 'cover' %}
+      </a>
+    {% endfor %}
   </div>
 
 </section>
 
 {% schema %}
   {
-    "name": "Image Carousel",
-    "max_blocks": 12,
+    "name": "Image Grid",
+    "max_blocks": 8,
     "settings": [
       {
         "type": "select",
@@ -68,7 +61,7 @@ z-10 absolute hidden md:block top-0 bottom-0 h-full outline-none w-1/4 md:w-1/8
         "label": "Heading",
         "id": "heading",
         "type": "text",
-        "default": "#SockCandy"
+        "default": "#SockCandyOfTheDay"
       },
       {
         "label": "Open link in new window",
@@ -97,16 +90,25 @@ z-10 absolute hidden md:block top-0 bottom-0 h-full outline-none w-1/4 md:w-1/8
             "label": "Alt Text",
             "id": "alt",
             "type": "text",
-            "default": "#SockCandy"
+            "default": "#SockCandyOfTheDay"
           }
         ]
       }
     ],
     "presets": [
       {
-        "name": "Image Carousel",
+        "name": "Image Grid",
         "category": "Image",
         "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
           {
             "type": "image"
           },

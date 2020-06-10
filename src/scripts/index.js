@@ -15,6 +15,5 @@ import './sections/mobile-nav'
 
 // Sections
 import './sections/homepage-press-quotes';
-import './sections/homepage-image-carousel';
 import './sections/product';
 import './sections/page-faq';
