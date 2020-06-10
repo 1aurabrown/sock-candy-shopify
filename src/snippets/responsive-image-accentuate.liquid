@@ -24,46 +24,49 @@
 {%- assign placeholder_key = placeholder_key | default: 'image' -%}
 {%- capture responsive_image_counter -%}{%- increment responsive_image_counter -%}{%- endcapture -%}
 
-{%- assign aspect_ratio_fallback = crop_aspect_ratio | default: image.aspect_ratio | default: 1 -%}
+{%- assign image_aspect_ratio = image.aspect_ratio | plus: 0 | round -%}
+{%- assign image_width = image.width | plus: 0 | round -%}
+{%- assign image_height = image.height | plus: 0 | round -%}
 
-{%- assign img_url_template = image | img_url: '1x1' -%}
+{%- assign aspect_ratio_fallback = crop_aspect_ratio | default: image_aspect_ratio | default: 1 -%}
+
+{%- assign img_url_template = image.cloudinary_src | append: 'w_{width}' -%}
+
 {%- if crop_aspect_ratio != blank -%}
+  {%- assign img_url_template = img_url_template | append: ',h_{height}' -%}
 
-  {%- if fit == 'cover' -%}
-    {%- assign img_url_template = img_url_template | crop: 'center' -%}
+  {%- if fit == 'contain' -%}
+    {%- assign img_url_template = img_url_template | append: ',c_fit' -%}
+  {%- else -%}
+    {%- assign img_url_template = img_url_template | append: ',c_fill' -%}
   {%- endif -%}
 
-  {%- assign img_url_template = img_url_template  | replace: '_1x1.', '_{width}x{height}.' -%}
-
-{%- else -%}
-  {%- assign img_url_template = img_url_template | replace: '_1x1.', '_{width}x.' -%}
 {%- endif -%}
 
-{%- comment -%} Limit image widths to valid options based on image.width {%- endcomment -%}
 {%- assign image_widths = '180,360,540,720,900,1080,1296,1512,1728,1944,2160,2376,2592,2808,3024' | split: ',' -%}
 {%- capture image_widths -%}
   {%- for width in image_widths -%}
     {%- comment -%} Check if image width is less or equal to width {%- endcomment -%}
     {%- assign width_num = width | plus: 0 | round -%}
-    {%- if image.width >= width_num -%}{{ width_num }},{%- endif -%}
+    {%- if image_width >= width_num -%}{{ width_num }},{%- endif -%}
   {%- endfor -%}
-  {{ image.width }}
+  {{ image_width }}
 {%- endcapture -%}
 {%- assign image_widths = image_widths | strip -%}
 
 {%- assign default_width = default_width | default: 500 -%}
-{%- assign img_url_string = default_width | append: 'x' -%}
+
+{%- assign default_img_url = image.cloudinary_src | append: 'w_' | append: default_width -%}
 
 {%- if crop_aspect_ratio != blank -%}
   {%- assign default_height = default_width | times: crop_aspect_ratio | round -%}
-  {%- assign img_url_string = img_url_string | append: default_height -%}
-  {%- assign default_image_url = image | img_url: img_url_string -%}
-  {% if fit == 'cover' %}
-    {%- assign default_image_url = default_image_url | crop: 'center' -%}
-  {%- endif -%}
+  {%- assign default_img_url = default_img_url | append: ',h_' | append: default_height -%}
 
-{%- else -%}
-  {%- assign default_image_url = image | img_url: img_url_string -%}
+  {%- if fit == 'contain' -%}
+    {%- assign img_url_template = img_url_template | append: ',c_fit' -%}
+  {%- else -%}
+    {%- assign img_url_template = img_url_template | append: ',c_fill' -%}
+  {%- endif -%}
 {%- endif -%}
 
 {%- capture wrapper_styles -%}
@@ -72,23 +75,24 @@ padding-top: {{ 100 | divided_by: aspect_ratio_fallback }}%
 
 {%- comment -%} data-aspectratio: aspect ratio of image file {%- endcomment -%}
 {%- comment -%} visual aspect ratio shoud be set via image wrapper's padding-bottom {%- endcomment -%}
+
 <div id="ImageWrapper-{{ image.id }}-{{ responsive_image_counter }}"
   data-image-id="{{ image.id }}"
   class="overflow-hidden relative h-0 p-0 {{ wrapper_class }}"
   {% if wrapper_styles != blank %}style="{{ wrapper_styles }}"{% endif %}>
-  {%- if image.src != blank -%}
+  {%- if image != blank -%}
     <img id="Image-{{ image.id }}-{{ responsive_image_counter }}"
-      class="lazyload absolute w-full h-full inset-0 {{ image_class }} object-{{ fit | default: 'cover' }}"
+      class="lazyload absolute w-full h-full inset-0"
       style="{{ img_styles }}"
-      src="{{ default_image_url }}"
+      src="{{ default_img_url }}"
       data-src="{{ img_url_template }}"
       data-widths="[{{ image_widths }}]"
-      data-aspectratio="{{ crop_aspect_ratio | default: image.aspect_ratio }}"
+      data-aspectratio="{{ crop_aspect_ratio | default: aspect_ratio }}"
       data-sizes="auto"
       alt="{{ alt | default: image.alt | escape }}" {{ image_attributes }}
     />
   {%- else -%}
-    <img class="bg-soft-blue absolute w-full h-full inset-0 {{ image_class }} object-{{ fit | default: 'cover' }}"
+    <img class="bg-soft-blue absolute w-full h-full inset-0 object-{{ fit | default: 'cover' }} {{ image_class }}"
     style="{{ img_styles }}"
     src="data:image/svg+xml;utf8,{{ placeholder_key | placeholder_svg_tag  | escape }}" />
   {%- endif -%}
@@ -96,6 +100,7 @@ padding-top: {{ 100 | divided_by: aspect_ratio_fallback }}%
 
 {%- assign placeholder_key = blank -%}
 {%- assign alt = blank -%}
+{%- assign inline_aspect_ratio = blank -%}
 {%- assign crop_aspect_ratio = blank -%}
 {%- assign image_class = blank -%}
 {%- assign wrapper_class = blank -%}

@@ -25,10 +25,9 @@
             <div data-animate="slide-up" class="w-32 md:w-auto mx-auto md:mx-20-per delay-{{ forloop.index | times: 200 }}">
               {% include 'responsive-image',
                 image: block.settings.image,
-                wrapper_class: 'pt-40-per',
-                inline_aspect_ratio: false,
-                alt: block.settings.source,
-                fit: 'contain' %}
+                crop_aspect_ratio: 2.5,
+                fit: 'contain',
+                alt: block.settings.source %}
               </div>
           </div>
         {% endfor %}
