@@ -15,16 +15,12 @@ class HeaderController {
   showNav() {
     this.mobileNavVisible = true
     freezeScroll()
-    console.log('show mobile nav')
   }
 
   hideNav() {
     this.mobileNavVisible = false
     releaseScroll()
-    console.log('hide mobile nav')
   }
-
-
 }
 
 const headerController = new HeaderController

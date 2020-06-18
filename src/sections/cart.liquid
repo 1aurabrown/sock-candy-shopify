@@ -86,7 +86,7 @@
             {% if cart.total_discounts > 0 %}
               <p class="mt-1 md:mt-2">{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
             {% endif %}
-            <p class="mt-1 md:mt-2">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+            <p class="mt-1 md:mt-2">{{ section.settings.note }}</p>
             <input type="submit" name="checkout" class="cursor-pointer button mt-3 md:mt-7" value="{{ 'cart.general.checkout' | t }}">
           </div>
         </div>
@@ -123,7 +123,7 @@
         "type": "textarea",
         "id": "note",
         "label": "Note",
-        "default": "Free Shipping on all orders. Taxes calculated at checkout."
+        "default": "Free Shipping on all orders"
       }
     ]
   }

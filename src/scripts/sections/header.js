@@ -35,7 +35,6 @@ register('header', {
   },
 
   top() {
-    console.log('top')
 
     if (headerController.mobileNavVisible) return
 
@@ -51,7 +50,6 @@ register('header', {
   },
 
   belowHeader() {
-    console.log('below header')
     if (headerController.mobileNavVisible) return
 
     this.headerContainer.classList.remove(`duration-${animationDuration}`)
@@ -66,7 +64,6 @@ register('header', {
   },
 
   down() {
-    console.log('down')
     if (headerController.mobileNavVisible) return
 
     if (this.offset === 'top') return
@@ -75,7 +72,6 @@ register('header', {
   },
 
   up() {
-    console.log('up')
     if (headerController.mobileNavVisible) return
 
     if (this.offset === 'top') return
