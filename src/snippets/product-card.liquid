@@ -1,7 +1,7 @@
 {%- assign current_variant = card_product.selected_or_first_available_variant -%}
 {%- assign featured_image = current_variant.featured_image | default: card_product.featured_image -%}
 
-{% assign index = forloop.index | modulo:5 %}
+{% assign index = forloop.index | modulo: 5 %}
 {% assign placeholder_key = 'product-' | append: forloop.index %}
 
 {% if card_product == empty %}
@@ -12,12 +12,14 @@
 <a data-animate="fade-in" class="product-card {{ card_class }}" href="{{ card_product.url }}" title="{{ card_product.title }}">
   <div class="product-card__image relative">
     {% include 'responsive-image' with
-    image: card_product.featured_image,
+    image: card_product.images[0],
     placeholder_key: placeholder_key
-     %}
-     <div class="absolute inset-0 opacity-0 transition-opacity duration-200 focus:opacity-100 hover:opacity-100 flex items-center justify-center bg-off-white bg-opacity-60">
-      <div class="w-1/4">{% include 'logomark.svg' %}</div>
-     </div>
+    %}
+    {% include 'responsive-image-img-tag' with
+    image: card_product.images[1],
+    placeholder_key: placeholder_key,
+    image_class: "transition-opacity duration-200 opacity-0 focus:opacity-100 hover:opacity-100 w-full h-full"
+    %}
   </div>
   <div class="flex flex-row justify-between mt-3 md:mt-6">
     <div class="product-card__title mr-6">{{ card_product.title | default: onboarding_title }}</div>
