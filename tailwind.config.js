@@ -29,7 +29,8 @@ module.exports = {
       'xl-tight-desk': ['1.5625rem', theme('lineHeight.tight-desk')],   // 25px
       '2xl-desk': ['2.4375rem', theme('lineHeight.normal')],            // 39px
       '2xl-tight-desk': ['2.4375rem', theme('lineHeight.tight-desk')],  // 39px
-      '3xl-tight-desk': ['3rem', theme('lineHeight.tight-desk')]        // 48px
+      '3xl-tight-desk': ['3rem', theme('lineHeight.tight-desk')],       // 48px
+      '4xl-tight-desk': ['3.5rem', theme('lineHeight.tight-desk')]      // 56px
     }),
     borderWidth: {
       default: '2px',
