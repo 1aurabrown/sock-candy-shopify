@@ -1,6 +1,6 @@
 import {register} from '@shopify/theme-sections'
 import Swiper from 'swiper';
-import { Breakpoints } from '../core/breakpoints-tailwind';
+import Breakpoints from '../core/breakpoints-tailwind';
 
 const selectors = {
   texts: '.press-quotes__texts .swiper-container',

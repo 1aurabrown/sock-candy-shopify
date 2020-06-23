@@ -65,6 +65,9 @@ module.exports = {
       'tight-desk': '1.11'
     },
     extend: {
+      screens: {
+        'hoverable': {'raw': '(hover: hover)'},
+      },
       opacity: {
         '0': '0',
         '10': '.1',

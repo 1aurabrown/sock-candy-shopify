@@ -15,10 +15,11 @@
     image: card_product.images[0],
     placeholder_key: placeholder_key
     %}
+
     {% include 'responsive-image-img-tag' with
     image: card_product.images[1],
     placeholder_key: placeholder_key,
-    image_class: "transition-opacity duration-200 opacity-0 focus:opacity-100 hover:opacity-100 w-full h-full"
+    image_class: "transition-opacity duration-200 opacity-0 focus:opacity-100 hoverable:hover:opacity-100 w-full h-full"
     %}
   </div>
   <div class="flex flex-row justify-between mt-3 md:mt-6">

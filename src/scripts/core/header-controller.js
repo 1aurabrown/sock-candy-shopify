@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 import { freezeScroll, releaseScroll } from '../core/freeze-scroll'
-import { Breakpoints } from '../core/breakpoints-tailwind'
+import Breakpoints from '../core/breakpoints-tailwind'
 
 class HeaderController {
   constructor() {

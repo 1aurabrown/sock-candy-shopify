@@ -55,7 +55,7 @@
 {%- else -%}
   <img class="bg-soft-blue absolute w-full h-full inset-0 {{ image_class }} object-{{ fit | default: 'cover' }}"
   style="{{ img_styles }}"
-  src="data:image/svg+xml;utf8,{{ placeholder_key | placeholder_svg_tag  | escape }}" />
+  src="data:image/svg+xml;utf8,{{ placeholder_key | placeholder_svg_tag | escape }}" />
 {%- endif -%}
 
 {% assign default_image_url = blank %}
