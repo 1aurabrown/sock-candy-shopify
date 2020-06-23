@@ -1,11 +1,11 @@
-<section class="homepage-full-bleed bg-rose">
+<section class="full-bleed bg-rose">
   <div class="relative">
     {% if section.settings.mobile_image != blank and section.settings.mobile_image.src != blank %}
       {% assign mobile_image = section.settings.mobile_image %}
     {% else %}
       {% assign mobile_image = section.settings.desktop_image %}
     {% endif %}
-    <div data-animate="fade-in" class="homepage-full-bleed__image">
+    <div data-animate="fade-in" class="full-bleed__image">
       {% include 'responsive-image' with
         image: section.settings.desktop_image,
         wrapper_class: 'hidden md:block',
@@ -18,8 +18,8 @@
       %}
     </div>
 
-    <div class="homepage-full-bleed__text px-8 md:px-26 absolute inset-0 text-off-white flex items-center">
-      <div data-animate="slide-up delay" class="mt-4 md:mt-10-per">
+    <div class="full-bleed__text px-8 md:px-26 absolute inset-0 text-off-white">
+      <div data-animate="slide-up delay" class="py-4 md:py-10-per h-full flex flex-col justify-center md:justify-end {% if section.settings.layout == 'text_right' %}items-end text-right{% else%}items-start text-left{% endif %}">
         {% if section.settings.title != blank %}
           <h2 class="mb-2 md:mb-3 text-xl-mob md:text-2xl-tight-desk lg:text-2xl-tight-desk max-w-sm-em">{{ section.settings.title | escape }}</h2>
         {% endif %}
@@ -75,6 +75,22 @@
         "id": "button_link",
         "label": "Button link",
         "default": "/collections"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "default": "text_left",
+        "options": [
+          {
+            "value": "text_left",
+            "label": "Text Left"
+          },
+          {
+            "value": "text_right",
+            "label": "Text Right"
+          }
+        ]
       }
     ],
     "presets": [

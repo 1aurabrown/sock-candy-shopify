@@ -1,31 +1,33 @@
-<section class="pdp-full-bleed-image bg-rose">
+<section class="full-bleed bg-rose">
   <div class="relative">
     {% if section.settings.mobile_image != blank and section.settings.mobile_image.src != blank %}
       {% assign mobile_image = section.settings.mobile_image %}
     {% else %}
       {% assign mobile_image = section.settings.desktop_image %}
     {% endif %}
-    <div data-animate="fade-in" class="pdp-full-bleed-image__image">
+    <div data-animate="fade-in" class="full-bleed__image">
       {% include 'responsive-image' with
         image: section.settings.desktop_image,
-        wrapper_class: 'hidden md:block'
+        wrapper_class: 'hidden md:block',
+        alt: section.settings.title
       %}
       {% include 'responsive-image' with
         image: mobile_image,
-        wrapper_class: 'md:hidden'
+        wrapper_class: 'md:hidden',
+        alt: section.settings.title
       %}
     </div>
 
-    <div data-animate="slide-up delay" class="pdp-full-bleed-image__text text-center pt-10 pb-12 px-6 md:p-26 md:absolute inset-0 md:text-off-white md:flex items-end justify-end md:text-right">
-      <div class="">
+    <div class="pt-10 pb-12 px-6 md:px-26 py-4 md:py-10-per md:absolute inset-0 md:text-off-white flex align-end flex flex-col justify-end">
+      <div data-animate="slide-up delay" class="h-full flex flex-col items-center justify-center md:justify-end text-center {% if section.settings.layout == 'text_right' %}md:items-end md:text-right{% else%}md:items-start md:text-left{% endif %}">
         {% if section.settings.title != blank %}
-          <h2 class="mx-auto text-xl-mob mb-2 md:mb-3 md:mr-0 md:text-2xl-tight-desk lg:text-2xl-tight-desk max-w-sm-em">{{ section.settings.title | escape }}</h2>
+          <h2 class="mb-2 md:mb-3 text-xl-mob md:text-2xl-tight-desk lg:text-2xl-tight-desk max-w-sm-em">{{ section.settings.title | escape }}</h2>
         {% endif %}
         {% if section.settings.text != blank %}
-          <div class="mx-auto max-w-sm-em md:mr-0 md:text-lg-desk lg:text-lg-desk">{{ section.settings.text }}</div>
+          <div class=" md:text-lg-desk lg:text-lg-desk max-w-sm-em">{{ section.settings.text }}</div>
         {% endif %}
         {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          <a class="mx-auto md:mr-0 mt-4 md:mt-6 button" href="{{ section.settings.button_link }}">
+          <a class=" mt-4 md:mt-6 button" href="{{ section.settings.button_link }}">
             {{ section.settings.button_label | escape }}
           </a>
         {% endif %}
@@ -73,7 +75,30 @@
         "id": "button_link",
         "label": "Button link",
         "default": "/collections"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "default": "text_left",
+        "options": [
+          {
+            "value": "text_left",
+            "label": "Text Left"
+          },
+          {
+            "value": "text_right",
+            "label": "Text Right"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Full-Bleed Image",
+        "category": "Image"
       }
     ]
   }
 {% endschema %}
+
