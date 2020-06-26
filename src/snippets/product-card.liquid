@@ -22,7 +22,7 @@
     image_class: "transition-opacity duration-200 opacity-0 focus:opacity-100 hoverable:hover:opacity-100 w-full h-full"
     %}
   </div>
-  <div class="flex flex-row justify-between mt-3 md:mt-6">
+  <div class="flex flex-row justify-between mt-3 md:mt-6 lg:text-lg-tight-desk">
     <div class="product-card__title mr-6">{{ card_product.title | default: onboarding_title }}</div>
     <div class="product-card__price">{{ card_product.price | default: 100 | money_without_trailing_zeros }}</div>
   </div>

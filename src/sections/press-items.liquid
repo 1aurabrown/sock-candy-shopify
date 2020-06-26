@@ -1,0 +1,60 @@
+<div class="px-4 md:px-16 mx-auto max-w-screen-xl">
+
+  <div class="grid grid-cols-2 md:grid-cols-3 row-gap-8 col-gap-3 md:row-gap-16 md:col-gap-12">
+    {% for block in section.blocks %}
+      {% if block.settings.url != blank %}
+        <a href="{{ block.settings.url }}" title="{{ block.settings.heading }}">
+      {% else %}
+        <div>
+      {% endif %}
+        {% include 'responsive-image', image: block.settings.image %}
+        <h2 class="text-lg-mob md:text-lg-tight-desk lg:text-xl-tight-desk mt-3 md:mt-6">
+          {{ block.settings.heading}}
+        </h2>
+        <p class="mt-2">
+          {{ block.settings.subheading }}
+        </p>
+      {% if block.settings.url != blank %}
+        </a>
+      {% else %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</a>
+
+{% schema %}
+  {
+    "name": "Press Items",
+    "blocks": [
+      {
+        "type": "press-item",
+        "name": "Press Item",
+        "settings": [
+          {
+            "label": "Heading",
+            "id": "heading",
+            "type": "text",
+            "default": "Forbes: Your New Favorite Sock Brand"
+          },
+          {
+            "label": "Sub-heading",
+            "id": "subheading",
+            "type": "text",
+            "default": "Published June 05, 2020"
+          },
+          {
+            "label": "Image",
+            "id": "image",
+            "type": "image_picker"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
