@@ -7,7 +7,10 @@
       {% else %}
         <div>
       {% endif %}
-        {% include 'responsive-image', image: block.settings.image %}
+        {% include 'responsive-image',
+          image: block.settings.image,
+          alt: block.settings.heading
+        %}
         <h2 class="text-lg-mob md:text-lg-tight-desk lg:text-xl-tight-desk mt-3 md:mt-6">
           {{ block.settings.heading}}
         </h2>

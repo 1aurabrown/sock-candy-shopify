@@ -23,11 +23,12 @@
           class="outline-none pt-5 pb-12 md:p-0 cursor-pointer swiper-slide md:flex-1 md:items-center relative"
           data-index="{{ forloop.index0 }}">
             <div data-animate="slide-up" class="w-32 md:w-auto mx-auto md:mx-20-per delay-{{ forloop.index | times: 200 }}">
+              {% assign alt = block.settings.source | default: block.settings.text %}
               {% include 'responsive-image',
                 image: block.settings.image,
                 crop_aspect_ratio: 2.5,
                 fit: 'contain',
-                alt: block.settings.source %}
+                alt: alt %}
               </div>
           </div>
         {% endfor %}
@@ -87,8 +88,7 @@
             "label": "Source",
             "id": "source",
             "type": "text",
-            "info": "Used as alt text for image",
-            "default": "Source"
+            "info": "Used as alt text for image"
           }
         ]
       }
