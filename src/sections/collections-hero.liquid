@@ -2,16 +2,19 @@
 
   <div class="md:relative">
 
-    <div data-animate="slide-up delay" class="z-10 pt-10 pb-12 px-6 md:p-16 lg:p-32 md:absolute md:inset-0 md:text-off-white md:flex md:items-center text-center md:text-left">
-      <div class="md:pb-5-per">
-        {% if section.settings.title != blank %}
-          <h2 class="text-2xl-mob mb-2 md:mb-3 md:text-2xl-tight-desk lg:text-3xl-tight-desk lg:text-3xl-tight-desk max-w-sm-em mx-auto md:ml-0">{{ section.settings.title | escape }}</h2>
-        {% endif %}
-        {% if section.settings.text != blank %}
-          <div class="md:text-lg-desk lg:text-xl-desk max-w-em mx-auto md:ml-0">{{ section.settings.text }}</div>
-        {% endif %}
+    {% if section.settings.title != blank or section.settings.text != blank %}
+      <div data-animate="slide-up delay" class="z-10 pt-10 pb-12 px-6 md:p-16 lg:p-32 md:absolute md:inset-0 md:text-off-white md:flex md:items-center text-center md:text-left">
+        <div class="md:pb-5-per">
+          {% if section.settings.title != blank %}
+            <h2 class="text-2xl-mob mb-2 md:mb-3 md:text-2xl-tight-desk lg:text-3xl-tight-desk lg:text-3xl-tight-desk max-w-sm-em mx-auto md:ml-0">{{ section.settings.title | escape }}</h2>
+          {% endif %}
+          {% if section.settings.text != blank %}
+            <div class="md:text-lg-desk lg:text-xl-desk max-w-em mx-auto md:ml-0">{{ section.settings.text }}</div>
+          {% endif %}
+        </div>
       </div>
-    </div>
+
+    {% endif %}
 
     {% if section.settings.mobile_image != blank and section.settings.mobile_image.src != blank %}
       {% assign mobile_image = section.settings.mobile_image %}
