@@ -19,7 +19,7 @@
       {% for image in product.images %}
         <div class="swiper-slide">
           <div class="">
-            {% include 'responsive-image', image: image %}
+            {% include 'responsive-image', image: image, default_width: 300 %}
           </div>
         </div>
       {% endfor %}
