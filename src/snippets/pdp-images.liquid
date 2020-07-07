@@ -13,14 +13,13 @@
       {% endfor %}
     </div>
   </div>
-  <div class="swiper-container">
+
+  <div class="swiper-container bg-off-white">
     <div class="swiper-wrapper">
 
       {% for image in product.images %}
         <div class="swiper-slide">
-          <div class="">
-            {% include 'responsive-image', image: image %}
-          </div>
+          {% include 'responsive-image', image: image, default_width: 300 %}
         </div>
       {% endfor %}
 
