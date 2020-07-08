@@ -22,3 +22,8 @@
     @apply opacity-100;
   }
 }
+
+.swiper-wrapper, .swiper-slide {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
